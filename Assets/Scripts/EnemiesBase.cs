@@ -10,6 +10,10 @@ public class EnemiesBase : MonoBehaviour
     [SerializeField] private float moveDistance;
     [SerializeField] private bool isAttacking;
     private GameObject player;
+    private IDamageable playerDamageable;
+    [SerializeField] private int attackDamage = 10; // Daño del enemigo
+    [SerializeField] private float attackCooldown = 1f; // Tiempo entre ataques
+    private float lastAttackTime = 0f;
 
     void Start()
     {
@@ -19,6 +23,7 @@ public class EnemiesBase : MonoBehaviour
         enemyAgent.avoidancePriority = Random.Range(30, 60);
         enemyAgent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
         player = GameObject.FindGameObjectWithTag("Player");
+        playerDamageable = player.GetComponent<IDamageable>();
     }
 
     void Update()
@@ -68,6 +73,12 @@ public class EnemiesBase : MonoBehaviour
                 SmoothLookAt(currentTarget);
             }
         }
+
+        if (isAttacking && Time.time - lastAttackTime >= attackCooldown)
+        {
+            DealDamageToPlayer();
+            lastAttackTime = Time.time;
+        }
     }
     private void SmoothLookAt(Transform target)
     {
@@ -77,6 +88,14 @@ public class EnemiesBase : MonoBehaviour
         {
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+        }
+    }
+
+    public void DealDamageToPlayer()
+    {
+        if (playerDamageable != null)
+        {
+            playerDamageable.TakeDamage(attackDamage);
         }
     }
 }
