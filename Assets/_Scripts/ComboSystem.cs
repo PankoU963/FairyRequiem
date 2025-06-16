@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -53,10 +54,11 @@ public class ComboSystem : MonoBehaviour
                 }
                 else
                 {
-                    if(stateInfo.IsName("Movement") && comboStep == 0) ExecuteComboStep();
-                    if(stateInfo.IsName("Attack 1") && comboStep == 1) ExecuteComboStep();
-                    if(stateInfo.IsName("Attack 2") && comboStep == 2) ExecuteComboStep();
-                    if(stateInfo.IsName("Attack 3") && comboStep == 3) ExecuteComboStep();
+                    if (stateInfo.IsName("Movement") && comboStep == 0) ExecuteComboStep();
+                    else if (stateInfo.IsName("Attack 1") && comboStep == 1) ExecuteComboStep();
+                    else if (stateInfo.IsName("Attack 2") && comboStep == 2) ExecuteComboStep();
+                    else if (stateInfo.IsName("Attack 3") && comboStep == 3) ExecuteComboStep();
+                    else lastAttackTime = Time.time;
                 }
             }
         }
@@ -97,16 +99,7 @@ public class ComboSystem : MonoBehaviour
         {
             comboStep = 1;
         }
-
         ExecuteCombo(comboStep);
-        //if(stateInfo.IsName("Movement"))
-        //{
-        //    ExecuteCombo(comboStep);
-        //}
-        //if (!stateInfo.IsName("Movement") && stateInfo.normalizedTime >= 0.8f && !inputBuffered)
-        //{
-        //    ExecuteCombo(comboStep);
-        //}
     }
 
 
@@ -148,64 +141,4 @@ public class ComboSystem : MonoBehaviour
         isAttacking = false; // No afecta el combo
         comboStep = 0;       // También reinicia el combo si era parte de uno
     }
-
-    //public void Attack()
-    //{
-    //    if (!stateInfo.IsName("Movement"))
-    //    {
-    //        comboResetTime = stateInfo.length;
-    //    }
-
-    //    if (!isAttack && Mouse.current.leftButton.wasPressedThisFrame)
-    //    {
-    //        comboCount = 1;
-    //        animator.SetInteger("ComboStep", comboCount);
-    //        isAttack = true;
-    //        timerCombo = 0f;
-
-
-    //    }
-
-    //    // Si estamos en ataque, cuenta tiempo
-    //    if (isAttack)
-    //    {
-    //        timerCombo += Time.deltaTime;
-
-    //        // Si presionan el botón durante la animación y estamos en ventana válida
-    //        if (Mouse.current.leftButton.wasPressedThisFrame && stateInfo.normalizedTime >= 0.6f && stateInfo.normalizedTime < 0.9f)
-    //        {
-    //            inputBuffered = true;
-    //        }
-
-    //        // Revisar por combo continuación
-    //        if (stateInfo.IsName("Attack 1") && stateInfo.normalizedTime >= 0.9f && comboCount == 1 && inputBuffered)
-    //        {
-
-    //            comboCount = 2;
-    //            animator.SetInteger("ComboStep", comboCount);
-    //            inputBuffered = false;
-    //            timerCombo = 0f;
-
-    //        }
-    //        else if (stateInfo.IsName("Attack 2") && stateInfo.normalizedTime >= 0.9f && comboCount == 2 && inputBuffered)
-    //        {
-    //            comboCount = 3;
-    //            animator.SetInteger("ComboStep", comboCount);
-    //            inputBuffered = false;
-    //            timerCombo = 0f;
-
-
-    //        }
-
-
-    //        // Si termina el último ataque o se pasa el tiempo sin combo, reset
-    //        if (stateInfo.IsName("Attack 3") && stateInfo.normalizedTime >= 0.9f || timerCombo >= comboResetTime)
-    //        {
-    //            comboCount = 0;
-    //            isAttack = false;
-    //            inputBuffered = false;
-    //            animator.SetInteger("ComboStep", 0);
-    //        }
-    //    }
-    //}
 }
