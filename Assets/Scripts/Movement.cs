@@ -8,6 +8,10 @@ public class Movement : MonoBehaviour
     public PlayerInput playerInput;
     public CharacterController characterController;
 
+    public Animator animator;
+    public bool isMoving;
+    public bool isAttack;
+
     private Vector3 playerVelocity;
     private Vector3 moveDirection;
 
@@ -22,50 +26,77 @@ public class Movement : MonoBehaviour
 
     private Vector2 movementInput;
 
+
+
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
         characterController = GetComponent<CharacterController>();
-
+       
         moveAction = playerInput.actions["Move"];
         jumpAction = playerInput.actions["Jump"];
 
         moveAction.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
         moveAction.canceled += ctx => movementInput = Vector2.zero;
+
     }
 
     void Update()
     {
         Move();
+        Animations();
     }
 
     private void Move()
     {
-        Vector3 moveDir = new Vector3(movementInput.x, 0, movementInput.y);
-
-        playerVelocity.x = moveDir.x * moveSpeedX;
-        playerVelocity.z = moveDir.z * moveSpeedY;
-
-        if (moveDir.magnitude > 0)
+        if (!isAttack) 
         {
-            Quaternion targetRotation = Quaternion.LookRotation(moveDir);
+            isMoving = movementInput != Vector2.zero ? true : false;
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-        }
+            Vector3 moveDir = new Vector3(movementInput.x, 0, movementInput.y);
 
-        if (characterController.isGrounded)
-        {
-            playerVelocity.y = -2f;
+            playerVelocity.x = moveDir.x * moveSpeedX;
+            playerVelocity.z = moveDir.z * moveSpeedY;
 
-            if (jumpAction.triggered)
+            if (moveDir.magnitude > 0)
             {
-                playerVelocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                Quaternion targetRotation = Quaternion.LookRotation(moveDir);
+
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             }
+
+            if (characterController.isGrounded)
+            {
+                playerVelocity.y = -2f;
+
+                if (jumpAction.triggered)
+                {
+                    playerVelocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                }
+            }
+            else
+            {
+                playerVelocity.y += gravity * Time.deltaTime;
+            }
+            characterController.Move(playerVelocity * Time.deltaTime);
+        }
+    }
+
+    public void Animations()
+    {
+        if (isMoving)
+        {
+            animator.SetFloat("Move", 1f);
         }
         else
         {
-            playerVelocity.y += gravity * Time.deltaTime;
+            animator.SetFloat("Move", 0f);
         }
-        characterController.Move(playerVelocity * Time.deltaTime);
+
+        //if (isAttack && comboCount == 1)
+        //{
+        //    animator.SetBool("Attack", true);
+        //}
+
     }
 }
