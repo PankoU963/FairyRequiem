@@ -10,6 +10,7 @@ public class EnemiesBase : MonoBehaviour
     [SerializeField] private float moveDistance;
     [SerializeField] private bool isAttacking;
     private GameObject player;
+    private float lastAttackTime = 0f;
 
     void Start()
     {
@@ -68,6 +69,7 @@ public class EnemiesBase : MonoBehaviour
                 SmoothLookAt(currentTarget);
             }
         }
+
     }
     private void SmoothLookAt(Transform target)
     {
