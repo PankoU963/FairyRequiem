@@ -12,12 +12,6 @@ public class Movement : MonoBehaviour
     public bool isMoving;
     public bool isAttack;
 
-    public int comboCount;
-    public float timerCombo;
-    public bool inputBuffered;
-
-    [SerializeField] private float comboResetTime = 1f;
-
     private Vector3 playerVelocity;
     private Vector3 moveDirection;
 
@@ -32,7 +26,7 @@ public class Movement : MonoBehaviour
 
     private Vector2 movementInput;
 
-    public AnimatorStateInfo stateInfo;
+
 
     void Start()
     {
@@ -51,7 +45,6 @@ public class Movement : MonoBehaviour
     {
         Move();
         Animations();
-        Attack();
     }
 
     private void Move()
@@ -91,7 +84,6 @@ public class Movement : MonoBehaviour
 
     public void Animations()
     {
-        stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         if (isMoving)
         {
             animator.SetFloat("Move", 1f);
@@ -101,70 +93,10 @@ public class Movement : MonoBehaviour
             animator.SetFloat("Move", 0f);
         }
 
-        if (isAttack && comboCount == 1)
-        {
-            animator.SetBool("Attack", true);
-        }
+        //if (isAttack && comboCount == 1)
+        //{
+        //    animator.SetBool("Attack", true);
+        //}
 
-    }
-
-    public void Attack()
-    {
-        if (!stateInfo.IsName("Movement"))
-        {
-            comboResetTime = stateInfo.length;
-        }
-
-        if (!isAttack && Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            comboCount = 1;
-            animator.SetInteger("ComboStep", comboCount);
-            isAttack = true;
-            timerCombo = 0f;
-
-
-        }
-
-        // Si estamos en ataque, cuenta tiempo
-        if (isAttack)
-        {
-            timerCombo += Time.deltaTime;
-
-            // Si presionan el botón durante la animación y estamos en ventana válida
-            if (Mouse.current.leftButton.wasPressedThisFrame && stateInfo.normalizedTime >= 0.6f && stateInfo.normalizedTime < 0.9f)
-            {
-                inputBuffered = true;
-            }
-
-            // Revisar por combo continuación
-            if (stateInfo.IsName("Attack 1") && stateInfo.normalizedTime >= 0.9f && comboCount == 1 && inputBuffered)
-            {
-
-                comboCount = 2;
-                animator.SetInteger("ComboStep", comboCount);
-                inputBuffered = false;
-                timerCombo = 0f;
-
-            }
-            else if (stateInfo.IsName("Attack 2") &&  stateInfo.normalizedTime >= 0.9f && comboCount == 2 && inputBuffered)
-            {
-                comboCount = 3;
-                animator.SetInteger("ComboStep", comboCount);
-                inputBuffered = false;
-                timerCombo = 0f;
-
-
-            }
-            
-
-            // Si termina el último ataque o se pasa el tiempo sin combo, reset
-            if (stateInfo.IsName("Attack 3") && stateInfo.normalizedTime >= 0.9f || timerCombo >= comboResetTime)
-            {
-                comboCount = 0;
-                isAttack = false;
-                inputBuffered = false;
-                animator.SetInteger("ComboStep", 0);
-            }
-        }
     }
 }

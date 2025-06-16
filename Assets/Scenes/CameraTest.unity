@@ -359,6 +359,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboResetTime: 1
   inputBufferTime: 0.1
+  comboStep: 0
+  lastAttackTime: 0
+  isAttacking: 0
+  inputBuffered: 0
+  animator: {fileID: 655417173}
 --- !u!1 &1812891417
 GameObject:
   m_ObjectHideFlags: 0
