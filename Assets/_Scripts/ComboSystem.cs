@@ -73,7 +73,7 @@ public class ComboSystem : MonoBehaviour
         {
             comboStep = 0;
             isAttacking = false;
-            Debug.Log("Combo reiniciado por inactividad");
+            //Debug.Log("Combo reiniciado por inactividad");
         }
         if (stateInfo.IsName("Attack 3") && stateInfo.normalizedTime >= 0.95f && comboStep == 3)
         {
@@ -113,31 +113,31 @@ public class ComboSystem : MonoBehaviour
         switch (step)
         {
             case 0:
-                Debug.Log("Ataque 1: Golpe rápido");
+                //Debug.Log("Ataque 1: Golpe rápido");
                 comboStep = 1;
                 animator.SetInteger("ComboStep", comboStep);
                 break;
             case 1:
-                Debug.Log("Ataque 1: Golpe rápido");
+                //Debug.Log("Ataque 1: Golpe rápido");
                 animator.SetInteger("ComboStep", comboStep);
                 break;
             case 2:
-                Debug.Log("Ataque 2: Golpe cruzado");
+                //Debug.Log("Ataque 2: Golpe cruzado");
                 animator.SetInteger("ComboStep", comboStep);
                 break;
             case 3:
-                Debug.Log("Ataque 3: Ataque fuerte");
+                //Debug.Log("Ataque 3: Ataque fuerte");
                 animator.SetInteger("ComboStep", comboStep);
                 break;
             default:
-                Debug.Log("Error en combo");
+                //Debug.Log("Error en combo");
                 break;
         }
     }
 
     void ExecuteSpecialAttack()
     {
-        Debug.Log("Ataque especial: Golpe ascendente");
+        //Debug.Log("Ataque especial: Golpe ascendente");
         isAttacking = false; // No afecta el combo
         comboStep = 0;       // También reinicia el combo si era parte de uno
     }
