@@ -15,19 +15,19 @@ public class ComboSystem : MonoBehaviour
     private bool pendingAttack = false;
     private float attackBufferTimer = 0f;
 
-    //public int comboCount;
-    //public float timerCombo;
-    public bool inputBuffered;
+    [SerializeField] private  Animator animator;
 
-    public Animator animator;
-    //public bool isAttack;
+    private AnimatorStateInfo stateInfo;
 
-    //[SerializeField] private float comboResetTime = 1f;
+    private Movement playerMovement;
 
-    public AnimatorStateInfo stateInfo;
-
+    private void Start()
+    {
+        playerMovement = GetComponent<Movement>();
+    }
     void Update()
     {
+        playerMovement.isAttack = isAttacking;
 
         stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         animator.SetBool("Attack", isAttacking);

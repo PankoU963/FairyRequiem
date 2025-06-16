@@ -92,11 +92,5 @@ public class Movement : MonoBehaviour
         {
             animator.SetFloat("Move", 0f);
         }
-
-        //if (isAttack && comboCount == 1)
-        //{
-        //    animator.SetBool("Attack", true);
-        //}
-
     }
 }
