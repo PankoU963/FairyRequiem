@@ -11,6 +11,8 @@ public class Health : MonoBehaviour, IDamageable
     public delegate void Death();
     public event Death OnDeath;
 
+    
+
     void Awake()
     {
         currentHealth = maxHealth;

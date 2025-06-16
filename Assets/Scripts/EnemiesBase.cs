@@ -1,8 +1,13 @@
+using System.Runtime;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemiesBase : MonoBehaviour
 {
+    private Health health;
+    private EnemyHealthBar healthBar;
+
     private NavMeshAgent enemyAgent;
     private Animator animator;
     [SerializeField] private Transform currentTarget;
@@ -14,6 +19,8 @@ public class EnemiesBase : MonoBehaviour
 
     void Start()
     {
+        //HealthBar
+        healthBar = GetComponent<EnemyHealthBar>();
 
         enemyAgent = GetComponent<NavMeshAgent>();
         animator = gameObject.transform.GetChild(0).GetComponent<Animator>();
@@ -25,6 +32,11 @@ public class EnemiesBase : MonoBehaviour
     void Update()
     {
         Attack();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(10);
+        }
     }
 
     private void Attack()
@@ -81,4 +93,11 @@ public class EnemiesBase : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
         }
     }
+
+    public void TakeDamage(int amount)
+    {
+        health.TakeDamage(amount);
+    }
+
+    
 }
