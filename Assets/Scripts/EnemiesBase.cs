@@ -16,7 +16,7 @@ public class EnemiesBase : MonoBehaviour
 
     void Start()
     {
-        health = new Health();
+        health = GetComponent<Health>();
         enemyAgent = GetComponent<NavMeshAgent>();
         animator = gameObject.transform.GetChild(0).GetComponent<Animator>();
         enemyAgent.avoidancePriority = Random.Range(30, 60);
@@ -93,6 +93,10 @@ public class EnemiesBase : MonoBehaviour
     public void TakeDamage(int amount)
     {
         hurt = true;
+        animator.SetTrigger("Hurt");
+        animator.SetBool("Attack", false);
+        isAttacking = false;
+
         health.TakeDamage(amount);
     }
 }
