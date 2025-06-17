@@ -18,13 +18,14 @@ public class DamageDealer : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        IDamageable damageable = other.GetComponent<IDamageable>();
-        if (damageable != null && !attacked)
+        if (other.CompareTag("Player"))
         {
-            damageable.TakeDamage(damageAmount);
-            attacked = true;
-            // Si es un proyectil, puedes destruirlo aquí:
-            // Destroy(gameObject);
+            IDamageable damageable = other.GetComponent<IDamageable>();
+            if (damageable != null && !attacked)
+            {
+                damageable.TakeDamage(damageAmount);
+                attacked = true;
+            }
         }
     }
 }
