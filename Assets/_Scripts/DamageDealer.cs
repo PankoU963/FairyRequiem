@@ -24,7 +24,7 @@ public class DamageDealer : MonoBehaviour
             if (damageable != null && !attacked)
             {
                 damageable.TakeDamage(damageAmount);
-                attacked = true;
+                attacked = true;    
             }
         }
     }
