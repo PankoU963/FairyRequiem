@@ -5,27 +5,34 @@ public class Health : MonoBehaviour, IDamageable
     [SerializeField] private int maxHealth = 100;
     private int currentHealth;
 
+    
+
     public delegate void HealthChanged(int current, int max);
     public event HealthChanged OnHealthChanged;
 
     public delegate void Death();
     public event Death OnDeath;
 
-    
+
+    //Accesors
+    public int MaxHealth { get => maxHealth; set => maxHealth = value; }
+    public int CurrentHealth { get => currentHealth; set => currentHealth = value; }
+
+    //Functions
 
     void Awake()
     {
-        currentHealth = maxHealth;
-        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        CurrentHealth = MaxHealth;
+        OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
     }
 
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        OnHealthChanged?.Invoke(currentHealth, maxHealth);
-        Debug.Log($"{gameObject.name} ha recibido {amount} puntos de daño. Salud actual: {currentHealth}/{maxHealth}");
-        if (currentHealth <= 0)
+        CurrentHealth -= amount;
+        CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
+        OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
+        Debug.Log($"{gameObject.name} ha recibido {amount} puntos de daño. Salud actual: {CurrentHealth}/{MaxHealth}");
+        if (CurrentHealth <= 0)
         {
             Die();
         }
@@ -33,11 +40,13 @@ public class Health : MonoBehaviour, IDamageable
 
     public void Heal(int amount)
     {
-        currentHealth += amount;
-        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        CurrentHealth += amount;
+        OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
+        CurrentHealth = CurrentHealth > MaxHealth ? maxHealth : CurrentHealth; //Verify if it's overhealing
+        Debug.Log($"{gameObject.name} ha recibido {amount} puntos de curación. Salud actual: {CurrentHealth}/{MaxHealth}");
     }
 
-    private void Die()
+    private void Die() 
     {
         Debug.Log($"{gameObject.name} ha muerto.");
         OnDeath?.Invoke();

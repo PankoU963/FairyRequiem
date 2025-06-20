@@ -1,12 +1,16 @@
 using System.Runtime;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class EnemiesBase : MonoBehaviour
 {
+
+    [Header("Health & HealthBar")]
     private Health health;
-    private EnemyHealthBar healthBar;
+    [SerializeField] private Image fillHealthBarImage;
+    [SerializeField] private Transform healthBarLookAtCamera;
 
     private NavMeshAgent enemyAgent;
     private Animator animator;
@@ -19,8 +23,14 @@ public class EnemiesBase : MonoBehaviour
 
     void Start()
     {
-        //HealthBar
-        healthBar = GetComponent<EnemyHealthBar>();
+        healthBarLookAtCamera = Camera.main.transform; //get the camera with the tag "MainCamera"
+
+        fillHealthBarImage = transform //get the fill from the healthbar
+            .Find("EnemyCanvas/HealthBar_Frame/HealthBar_bg/HealthBar_Fill")
+            ?.GetComponent<Image>();
+
+        health = gameObject.AddComponent<Health>();
+        health.OnHealthChanged += UpdateHealth;
 
         enemyAgent = GetComponent<NavMeshAgent>();
         animator = gameObject.transform.GetChild(0).GetComponent<Animator>();
@@ -31,12 +41,21 @@ public class EnemiesBase : MonoBehaviour
 
     void Update()
     {
-        Attack();
+        // Attack();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(10);
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Heal(10);
+        }
+    }
+    private void LateUpdate()
+    {
+        if (healthBarLookAtCamera != null)
+            transform.forward = healthBarLookAtCamera.forward; // 
     }
 
     private void Attack()
@@ -97,7 +116,23 @@ public class EnemiesBase : MonoBehaviour
     public void TakeDamage(int amount)
     {
         health.TakeDamage(amount);
+        UpdateHealth(health.CurrentHealth, health.MaxHealth);
     }
+
+    public void Heal(int amount) {
+        health.Heal(amount);
+        UpdateHealth(health.CurrentHealth, health.MaxHealth);
+    }
+
+    
+
+    public void UpdateHealth(int current, int max)
+    {
+        float percent = Mathf.Clamp01((float)current / max);
+        fillHealthBarImage.fillAmount = percent;
+    }
+
+
 
     
 }
