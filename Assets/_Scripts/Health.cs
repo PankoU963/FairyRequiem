@@ -11,28 +11,29 @@ public class Health : MonoBehaviour, IDamageable
     public delegate void Death();
     public event Death OnDeath;
 
+    public int MaxHealth { get => maxHealth; set => maxHealth = value; }
+    public int CurrentHealth { get => currentHealth; set => currentHealth = value; }
     void Awake()
     {
-        currentHealth = maxHealth;
-        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        CurrentHealth = MaxHealth;
+        OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
     }
 
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        OnHealthChanged?.Invoke(currentHealth, maxHealth);
-        Debug.Log($"{gameObject.name} ha recibido {amount} puntos de daño. Salud actual: {currentHealth}/{maxHealth}");
-        if (currentHealth <= 0)
+        CurrentHealth -= amount;
+        CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
+        OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
+        Debug.Log($"{gameObject.name} ha recibido {amount} puntos de daño. Salud actual: {CurrentHealth}/{MaxHealth}");
+        if (CurrentHealth <= 0)
         {
             Die();
         }
     }
-
     public void Heal(int amount)
     {
-        currentHealth += amount;
-        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        CurrentHealth += amount;
+        OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
     }
 
     private void Die()

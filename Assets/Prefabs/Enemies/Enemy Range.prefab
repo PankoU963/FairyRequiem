@@ -137,8 +137,9 @@ GameObject:
   - component: {fileID: 9048749573870169868}
   - component: {fileID: 4335541794302417450}
   - component: {fileID: 2661020525776930204}
+  - component: {fileID: -3518376059083173653}
   m_Layer: 7
-  m_Name: Enemy Melee
+  m_Name: Enemy Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -173,6 +174,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
+  enemyType: 0
+  shootArrow: {fileID: 0}
   AttackDistance: 1.5
   moveDistance: 0
   isAttacking: 0
@@ -262,6 +265,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-3518376059083173653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057375926736706247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 335648a4356eb8c4a80da3548a926689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootPoint: {fileID: 0}
+  arrowPrefab: {fileID: 2662248391549562132, guid: 477acf5632402d24db466e92a7f6ecab, type: 3}
+  initialSpeed: 10
+  arcHeight: 5
 --- !u!1001 &6397285571965180117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -969,7 +988,7 @@ Animator:
   m_GameObject: {fileID: 6054756017617134980}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b5f2136e6dc74fa4d831cdf2ee38044b, type: 2}
+  m_Controller: {fileID: 9100000, guid: e6dbd0dab157c314080caabdab65d461, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

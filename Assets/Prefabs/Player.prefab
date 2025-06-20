@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAmount: 10
   attackAnimator: {fileID: 7478680066005460061}
+  comboSystem: {fileID: 0}
 --- !u!1 &8720111971904505950
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +140,7 @@ GameObject:
   - component: {fileID: 3321439810669167172}
   - component: {fileID: 6199804377939903841}
   - component: {fileID: 162577377373741518}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}

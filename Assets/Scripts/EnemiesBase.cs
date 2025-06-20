@@ -1,16 +1,25 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 public class EnemiesBase : MonoBehaviour
 {
+    private enum EnemyType {Melee, Range}
+
     private NavMeshAgent enemyAgent;
     private Animator animator;
     [SerializeField] private Transform currentTarget;
+
+    [SerializeField] EnemyType enemyType;
+    [SerializeField] private ShootArrowEnemies shootArrow;
+
     [SerializeField] private float AttackDistance;
     [SerializeField] private float moveDistance;
     [SerializeField] private bool isAttacking;
     private GameObject player;
 
     private Health health;
+    [SerializeField] private Image fillHealthBarImage;
+    [SerializeField] private Transform healthBarLookAtCamera;
 
     public bool hurt;
 
@@ -22,6 +31,19 @@ public class EnemiesBase : MonoBehaviour
         enemyAgent.avoidancePriority = Random.Range(30, 60);
         enemyAgent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
         player = GameObject.FindGameObjectWithTag("Player");
+
+        if(enemyType == EnemyType.Range)
+        {
+            shootArrow = GetComponent<ShootArrowEnemies>();
+        }
+
+        healthBarLookAtCamera = Camera.main.transform; //get the camera with the tag "MainCamera"
+
+        fillHealthBarImage = transform //get the fill from the healthbar
+            .Find("EnemyCanvas/HealthBar_Frame/HealthBar_bg/HealthBar_Fill")
+            ?.GetComponent<Image>();
+
+        health.OnHealthChanged += UpdateHealth;
     }
 
     void Update()
@@ -37,21 +59,59 @@ public class EnemiesBase : MonoBehaviour
 
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
 
+        SmoothLookAt(currentTarget);
         if (!hurt)
         {
-            if (isAttacking)
+            if (enemyType == EnemyType.Melee)
             {
-                enemyAgent.isStopped = true;
-                if (stateInfo.IsName("Attack") && stateInfo.normalizedTime >= 1f)
+                if (isAttacking)
                 {
-                    isAttacking = false;
-                    animator.SetBool("Attack", false);
+                    enemyAgent.isStopped = true;
+                    if (stateInfo.IsName("Attack") && stateInfo.normalizedTime >= 1f)
+                    {
+                        isAttacking = false;
+                        animator.SetBool("Attack", false);
+                    }
+                }
+
+                if (moveDistance <= AttackDistance)
+                {
+                    if (!isAttacking && stateInfo.IsName("Attack") == false)
+                    {
+                        isAttacking = true;
+                        enemyAgent.ResetPath();
+                        enemyAgent.isStopped = true;
+                        enemyAgent.velocity = Vector3.zero;
+                        animator.SetBool("Attack", true);
+                        animator.SetFloat("Move", 0);
+                        SmoothLookAt(currentTarget);
+                    }
+                }
+                else
+                {
+                    SmoothLookAt(currentTarget);
+                    if (!isAttacking)
+                    {
+                        enemyAgent.isStopped = false;
+                        enemyAgent.SetDestination(currentTarget.position);
+                        animator.SetFloat("Move", 1);
+                        animator.SetBool("Attack", false);
+                    }
                 }
             }
-
-            if (moveDistance <= AttackDistance)
+            if (enemyType == EnemyType.Range)
             {
-                if (!isAttacking && stateInfo.IsName("Attack") == false)
+                if (isAttacking)
+                {
+                    enemyAgent.isStopped = true;
+                    if (stateInfo.IsName("Attack") && stateInfo.normalizedTime >= 1f)
+                    {
+                        isAttacking = false;
+                        animator.SetBool("Attack", false);
+                    }
+                }
+
+                if (!isAttacking && !   stateInfo.IsName("Attack"))
                 {
                     isAttacking = true;
                     enemyAgent.ResetPath();
@@ -60,18 +120,9 @@ public class EnemiesBase : MonoBehaviour
                     animator.SetBool("Attack", true);
                     animator.SetFloat("Move", 0);
                     SmoothLookAt(currentTarget);
+                    shootArrow.ShootArrow();
                 }
-            }
-            else
-            {
-                if (!isAttacking)
-                {
-                    enemyAgent.isStopped = false;
-                    enemyAgent.SetDestination(currentTarget.position);
-                    animator.SetFloat("Move", 1);
-                    animator.SetBool("Attack", false);
-                    SmoothLookAt(currentTarget);
-                }
+
             }
         }
         if(stateInfo.IsName("Hurt") && stateInfo.normalizedTime >= 0.95f)
@@ -90,6 +141,12 @@ public class EnemiesBase : MonoBehaviour
         }
     }
 
+    public void UpdateHealth(int current, int max)
+    {
+        float percent = Mathf.Clamp01((float)current / max);
+        fillHealthBarImage.fillAmount = percent;
+    }
+
     public void TakeDamage(int amount)
     {
         hurt = true;
@@ -98,5 +155,7 @@ public class EnemiesBase : MonoBehaviour
         isAttacking = false;
 
         health.TakeDamage(amount);
+        UpdateHealth(health.CurrentHealth, health.MaxHealth);
     }
+
 }
