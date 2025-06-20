@@ -20,6 +20,7 @@ public class EnemiesBase : MonoBehaviour
     private Health health;
     [SerializeField] private Image fillHealthBarImage;
     [SerializeField] private Transform healthBarLookAtCamera;
+    [SerializeField] private Transform healthBarCanvas;
 
     public bool hurt;
 
@@ -39,6 +40,7 @@ public class EnemiesBase : MonoBehaviour
 
         healthBarLookAtCamera = Camera.main.transform; //get the camera with the tag "MainCamera"
 
+        health.CurrentHealth = health.MaxHealth;
         fillHealthBarImage = transform //get the fill from the healthbar
             .Find("EnemyCanvas/HealthBar_Frame/HealthBar_bg/HealthBar_Fill")
             ?.GetComponent<Image>();
@@ -49,6 +51,15 @@ public class EnemiesBase : MonoBehaviour
     void Update()
     {
         Attack();
+    }
+    private void LateUpdate()
+    {
+        if (healthBarCanvas != null && healthBarLookAtCamera != null)
+        {
+
+            // Opción 2 (más simple): copia la rotación de la cámara (solo Y si quieres)
+            healthBarCanvas.forward = healthBarLookAtCamera.forward;
+        }
     }
 
     private void Attack()
