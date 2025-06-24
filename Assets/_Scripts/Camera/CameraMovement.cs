@@ -11,6 +11,10 @@ public class CameraMovement : MonoBehaviour
     private bool enZonaFija = false;
     private Transform zonaFijaTransform;
 
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     void LateUpdate()
     {
         Vector3 targetPosition;

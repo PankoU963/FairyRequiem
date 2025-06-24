@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Zona: 1
   enemyPrefab:
-  - {fileID: 9022586033390555975, guid: 19824139b0276294f85fef764e831154, type: 3}
-  - {fileID: 6871081235523454172, guid: 0c85edd91d126dc48af019fe1abb3985, type: 3}
-  - {fileID: 4680363249574488000, guid: 7d3112f1123a9ea48bdfae4e686f284b, type: 3}
-  amount: 020000000400000004000000
+  - {fileID: 1958371544231664328, guid: 9d736f7673ec4784f8abee166eeffb30, type: 3}
+  - {fileID: 7975298371753248170, guid: 8ac7b3ebdc6da9d4dbf562a3b6fe93ef, type: 3}
+  amount: 0300000001000000

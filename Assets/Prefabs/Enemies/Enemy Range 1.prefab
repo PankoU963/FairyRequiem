@@ -2775,7 +2775,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   enemyType: 1
   shootArrow: {fileID: 0}
-  AttackDistance: 1.5
+  AttackDistance: 8
   moveDistance: 0
   isAttacking: 0
   fillHealthBarImage: {fileID: 0}
