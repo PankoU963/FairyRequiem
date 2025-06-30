@@ -3,7 +3,12 @@ guid: d9dcc30614af5ef45be6dc8444e393ec
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mzo
+    second: {fileID: 2100000, guid: e2517c5f279f37b4bad0b187e67cfca3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

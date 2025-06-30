@@ -3,7 +3,47 @@ guid: 38a6d440a2c67aa40983b3030e49cadd
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: antenas
+    second: {fileID: 2100000, guid: 1b1a894422e5fd04b86636e08e495c11, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blanco
+    second: {fileID: 2100000, guid: d028c6c0d5322c14c9c7f592922539a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cabeza.001
+    second: {fileID: 2100000, guid: 0b1bef4b93864bf4abd207f09ef57758, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: falda
+    second: {fileID: 2100000, guid: 731057ef40ba7c942835df669202489e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: negro
+    second: {fileID: 2100000, guid: a8773287a8d3ff5499f00431febf57bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: piel
+    second: {fileID: 2100000, guid: ab9457d6a78489e46905ba141fac7329, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: piel.001
+    second: {fileID: 2100000, guid: f66e6d4fd54ee1a4fafb2f8a211cf06f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: top
+    second: {fileID: 2100000, guid: c831d5707c4430b408b44d610ebcab55, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

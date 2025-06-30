@@ -3,7 +3,72 @@ guid: bf46c39576709c3478c3e2d4be116e5f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Esfera_ext
+    second: {fileID: 2100000, guid: 330cfb777b6f1b247b8a1f13d1da9f82, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 36637c59178cc8249961190762b3eedf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: e672ac29719a3f145a02c744d8139357, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: a2a02d3db87cff343a95b6f6b45a5baa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: barba
+    second: {fileID: 2100000, guid: 3290e9400030b0f46ba60003311c59a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body
+    second: {fileID: 2100000, guid: 4693ad5b8ca17a54e83442ceb015a002, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cabeza
+    second: {fileID: 2100000, guid: afc9184e9d8599f468abc924da099c43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: casco
+    second: {fileID: 2100000, guid: 07082506d0be00841acafbd8e7615fd0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: colmillos
+    second: {fileID: 2100000, guid: 316afe6ff17ded240a8906f134eaee57, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ojo
+    second: {fileID: 2100000, guid: 988e6beb1aaec2242af74c66423fca9e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: orejas
+    second: {fileID: 2100000, guid: 67fd64adb2e7ba44894c07bc22a73a3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pantalon
+    second: {fileID: 2100000, guid: 13d652f2189348a42b0f9736792b8fc5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pies
+    second: {fileID: 2100000, guid: 8c0b7261000b9d6488c45ddc97b1a1ec, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

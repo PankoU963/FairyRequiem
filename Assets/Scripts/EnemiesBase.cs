@@ -122,18 +122,30 @@ public class EnemiesBase : MonoBehaviour
                     }
                 }
 
-                if (!isAttacking && !   stateInfo.IsName("Attack"))
+                if (moveDistance >= AttackDistance)
                 {
-                    isAttacking = true;
-                    enemyAgent.ResetPath();
-                    enemyAgent.isStopped = true;
-                    enemyAgent.velocity = Vector3.zero;
-                    animator.SetBool("Attack", true);
-                    animator.SetFloat("Move", 0);
-                    SmoothLookAt(currentTarget);
-                    shootArrow.ShootArrow();
+                    if (!isAttacking && stateInfo.IsName("Attack") == false)
+                    {
+                        enemyAgent.SetDestination(currentTarget.position);
+                        enemyAgent.isStopped = false;
+                        animator.SetBool("Attack", false);
+                        animator.SetFloat("Move", 1);
+                        SmoothLookAt(currentTarget);
+                    }
+                } else
+                {
+                    if (!isAttacking && !stateInfo.IsName("Attack"))
+                    {
+                        isAttacking = true;
+                        enemyAgent.ResetPath();
+                        enemyAgent.isStopped = true;
+                        enemyAgent.velocity = Vector3.zero;
+                        animator.SetBool("Attack", true);
+                        animator.SetFloat("Move", 0);
+                        SmoothLookAt(currentTarget);
+                        shootArrow.ShootArrow();
+                    }
                 }
-
             }
         }
         if(stateInfo.IsName("Hurt") && stateInfo.normalizedTime >= 0.95f)
