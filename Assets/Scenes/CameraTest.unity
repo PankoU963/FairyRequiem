@@ -119,6 +119,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &216100199 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 367085863402420701, guid: efe7393724d6d824ab151839351e05e0, type: 3}
+  m_PrefabInstance: {fileID: 1926342693}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &216100204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216100199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91888a1615aa6ea4ea8c8d80c28903e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camara: {fileID: 1812891421}
 --- !u!1001 &772988225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -462,6 +480,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZonaFija
       objectReference: {fileID: 0}
+    - target: {fileID: 4963369990328084025, guid: efe7393724d6d824ab151839351e05e0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7914668775704936069, guid: efe7393724d6d824ab151839351e05e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -505,7 +527,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 367085863402420701, guid: efe7393724d6d824ab151839351e05e0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 216100204}
   m_SourcePrefab: {fileID: 100100000, guid: efe7393724d6d824ab151839351e05e0, type: 3}
 --- !u!1 &1996946300
 GameObject:

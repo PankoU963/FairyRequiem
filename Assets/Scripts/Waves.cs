@@ -4,79 +4,90 @@ using UnityEngine;
 public class NewMonoBehaviourScript : MonoBehaviour
 {
     public EnemySpawnData enemysToSpawn;
-
     public Transform[] spawnPoints;
 
     [SerializeField] GameObject wallF, WallB;
 
-    private bool trigger;
+    private int currentWave = 0;
+    private bool isSpawning = false;
+    private bool activated = false;
 
-    private int enemyCount;
-
-    // Update is called once per frame
     void Update()
     {
-        enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        if (activated && !isSpawning && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+        {
+            currentWave++;
+
+            if (currentWave <= 3)
+            {
+                StartCoroutine(SpawnWave(currentWave));
+            }
+            else
+            {
+                Debug.Log("mataste a todos, chimba eso");
+                wallF.SetActive(false);
+                WallB.SetActive(false);
+                enabled = false; // Desactiva este script
+            }
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        
+        Debug.Log("si choco este hptsdadsadsadadsadadsdagdsgaghfdhsa");
+        if (other.CompareTag("Player") && !activated)
         {
-            wallF.gameObject.SetActive(true);
-            WallB.gameObject.SetActive(true);
-            // SpawnEnemies();
-            Destroy(gameObject);
+            activated = true;
+            wallF.SetActive(true);
+            WallB.SetActive(true);
+
+            currentWave = 1;
+
+            if (currentWave <= 3)
+            {
+                StartCoroutine(SpawnWave(currentWave));
+            }
+            
+                
         }
     }
 
-    IEnumerator SpawnEnemies()
+    IEnumerator SpawnWave(int waveNumber)
     {
-        Debug.Log("spawneo de enemigos");
-        if (enemyCount == 0)
+        isSpawning = true;
+
+        Debug.Log("2 segundos para la ola: " + waveNumber);
+        yield return new WaitForSeconds(2f);
+
+        Debug.Log("oleada  " + waveNumber);
+
+        if (waveNumber == 1)
         {
-            wave1();
-            yield return new WaitForSeconds(5f);
+            SpawnFromList(enemysToSpawn.enemyPrefab1, enemysToSpawn.amount1);
+        }
+        else if (waveNumber == 2)
+        {
+            SpawnFromList(enemysToSpawn.enemyPrefab2, enemysToSpawn.amount2);
+        }
+        else if (waveNumber == 3)
+        {
+            SpawnFromList(enemysToSpawn.enemyPrefab3, enemysToSpawn.amount3);
         }
         
+        isSpawning = false;
     }
 
-    void wave1()
+    void SpawnFromList(System.Collections.Generic.List<GameObject> prefabs, System.Collections.Generic.List<int> amounts)
     {
-        for (int i = 0; i < enemysToSpawn.enemyPrefab1.Count; i++)
+        for (int i = 0; i < prefabs.Count; i++)
         {
-            for (int j = 0; j < enemysToSpawn.amount1[i]; j++)
+            for (int j = 0; j < amounts[i]; j++)
             {
                 Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-                Debug.Log("enemigo spawneado" + j);
-                Instantiate(enemysToSpawn.enemyPrefab1[i], spawnPoint.position, spawnPoint.rotation);
+                Instantiate(prefabs[i], spawnPoint.position, spawnPoint.rotation);
             }
         }
-    }
 
-    void wave2()
-    {
-        for (int i = 0; i < enemysToSpawn.enemyPrefab2.Count; i++)
-        {
-            for (int j = 0; j < enemysToSpawn.amount2[i]; j++)
-            {
-                Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-                Debug.Log("enemigo spawneado" + j);
-                Instantiate(enemysToSpawn.enemyPrefab1[i], spawnPoint.position, spawnPoint.rotation);
-            }
-        }
-    }
-
-    void wave3()
-    {
-        for (int i = 0; i < enemysToSpawn.enemyPrefab3.Count; i++)
-        {
-            for (int j = 0; j < enemysToSpawn.amount3[i]; j++)
-            {
-                Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-                Debug.Log("enemigo spawneado" + j);
-                Instantiate(enemysToSpawn.enemyPrefab1[i], spawnPoint.position, spawnPoint.rotation);
-            }
-        }
     }
 }

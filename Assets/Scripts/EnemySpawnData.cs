@@ -9,7 +9,7 @@ public class EnemySpawnData : ScriptableObject
 
     [Header("Wave1")]
     public List<GameObject> enemyPrefab1;
-    public int[] amount1;
+    public List<int> amount1;
 
     [Header("Wave2")]
     public List<GameObject> enemyPrefab2;
