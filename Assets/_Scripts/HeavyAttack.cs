@@ -60,6 +60,7 @@ public class HeavyAttack : MonoBehaviour
     private void StartCharging()
     {
         isCharging = true;
+        movementScript.SetIsAttacking(true);
         currentCharge = 0f;
         animator.SetTrigger("HeavyAttack");
         animator.speed = 0f;
