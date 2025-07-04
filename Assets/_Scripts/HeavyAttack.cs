@@ -10,12 +10,19 @@ public class HeavyAttack : MonoBehaviour
 
     private float currentCharge = 0f;
     private bool isCharging = false;
+    private bool isAttacking = false;
 
     private InputSystem_Actions inputActions;
+
+    [SerializeField] private Animator animator;
+
+    private Movement movementScript;
 
     private void Awake()
     {
         inputActions = new InputSystem_Actions();
+
+        movementScript = GetComponent<Movement>();
 
         inputActions.Player.Attack.started += ctx =>
         {
@@ -41,6 +48,8 @@ public class HeavyAttack : MonoBehaviour
 
     private void Update()
     {
+        if (isAttacking || isCharging) return; //Avoid movement if is Attacking
+
         if (isCharging)
         {
             currentCharge += Time.deltaTime;
@@ -52,12 +61,22 @@ public class HeavyAttack : MonoBehaviour
     {
         isCharging = true;
         currentCharge = 0f;
-        Debug.Log("Comenzó a cargar el ataque pesado");
+        animator.SetTrigger("HeavyAttack");
+        animator.speed = 0f;
+        Debug.Log("Cargando ataque...");
+
     }
 
     private void ReleaseAttack()
     {
         isCharging = false;
+        animator.speed = 1f;
+
+        isAttacking = true;
+        movementScript.SetIsAttacking(true);
+
+        Invoke(nameof(EndAttack), 1f); 
+        
         float ratio = Mathf.InverseLerp(minChargeTime, maxChargeTime, currentCharge);
         float totalDamage = baseDamage + ratio * maxExtraDamage;
         Debug.Log($"¡Ataque pesado ejecutado! Daño: {totalDamage:F1}");
@@ -66,7 +85,18 @@ public class HeavyAttack : MonoBehaviour
 
     private void DoBasicAttack()
     {
+        if (isAttacking) return;
+
+        isAttacking = true;
+        animator.SetTrigger("LightAttack");
         Debug.Log("Ataque básico ejecutado");
-        // Aquí puedes llamar a animaciones o lógica de daño simple
+
+        Invoke(nameof(EndAttack), 0.6f); // ajusta según duración
+    }
+
+    private void EndAttack()
+    {
+        isAttacking = false;
+        movementScript.SetIsAttacking(false);
     }
 }
