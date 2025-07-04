@@ -6,7 +6,9 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public EnemySpawnData enemysToSpawn;
     public Transform[] spawnPoints;
 
-    [SerializeField] GameObject wallF, WallB;
+    [SerializeField] private GameObject wallF, WallB;
+
+    [SerializeField] GameObject zonaFija;
 
     private int currentWave = 0;
     private bool isSpawning = false;
@@ -28,6 +30,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
                 wallF.SetActive(false);
                 WallB.SetActive(false);
                 enabled = false; // Desactiva este script
+            }
+
+            if (currentWave >= 3)
+            {
+                Destroy(zonaFija);
             }
         }
     }
