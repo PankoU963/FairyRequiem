@@ -92,7 +92,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &701720725291204030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 7101708683276949503}
   - component: {fileID: 1239924409860486959}
   m_Layer: 5
-  m_Name: GameObject (3)
+  m_Name: BG 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  parallaxMultiplier: 0.5
+  parallaxMultiplier: 0.2
   viewZone: 7
   backgroundLength: 28
 --- !u!1 &2900735512098620894
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 5252826320644555183}
   - component: {fileID: 2299369609685366636}
   m_Layer: 5
-  m_Name: GameObject (5)
+  m_Name: BG 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  parallaxMultiplier: 0.5
+  parallaxMultiplier: 0.2
   viewZone: 7
   backgroundLength: 28
 --- !u!1 &3149324733037434892
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  parallaxMultiplier: 0.5
+  parallaxMultiplier: 0.2
   viewZone: 7
   backgroundLength: 28
 --- !u!1 &3888492272573297775
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 6199961596018199822}
   - component: {fileID: 528223684765272685}
   m_Layer: 5
-  m_Name: BG7
+  m_Name: BG 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  parallaxMultiplier: 0.5
+  parallaxMultiplier: 0.2
   viewZone: 7
   backgroundLength: 28
 --- !u!1 &6053226571253156976
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  parallaxMultiplier: 0.5
+  parallaxMultiplier: 0.2
   viewZone: 7
   backgroundLength: 28
 --- !u!1 &6886585533965185741
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  parallaxMultiplier: 0.5
+  parallaxMultiplier: 0.2
   viewZone: 7
   backgroundLength: 28
 --- !u!1 &7352186100490966470
@@ -492,7 +492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  parallaxMultiplier: 0.5
+  parallaxMultiplier: 0.2
   viewZone: 7
   backgroundLength: 15
 --- !u!1 &8572983306474939838
@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 2280235232185452346}
   - component: {fileID: 8515395376174022292}
   m_Layer: 5
-  m_Name: GameObject (2)
+  m_Name: BG 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -547,7 +547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  parallaxMultiplier: 0.5
+  parallaxMultiplier: 0.2
   viewZone: 7
   backgroundLength: 28
 --- !u!1 &8763613379635994441
@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 2019760571287815426}
   - component: {fileID: 6575253051647265769}
   m_Layer: 5
-  m_Name: GameObject (4)
+  m_Name: BG 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -602,7 +602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  parallaxMultiplier: 0.5
+  parallaxMultiplier: 0.2
   viewZone: 7
   backgroundLength: 28
 --- !u!1001 &612260016123793646

@@ -760,14 +760,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 528223684765272685, guid: 1168b485792a65e4cae94579c5d9bef4, type: 3}
+      propertyPath: parallaxMultiplier
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 790751288525897346, guid: 1168b485792a65e4cae94579c5d9bef4, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225079703287999851, guid: 1168b485792a65e4cae94579c5d9bef4, type: 3}
+      propertyPath: parallaxMultiplier
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1811192666303347498, guid: 1168b485792a65e4cae94579c5d9bef4, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1812891419}
+    - target: {fileID: 2299369609685366636, guid: 1168b485792a65e4cae94579c5d9bef4, type: 3}
+      propertyPath: parallaxMultiplier
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2394857185031703682, guid: 1168b485792a65e4cae94579c5d9bef4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -847,6 +859,22 @@ PrefabInstance:
     - target: {fileID: 2394857185031703682, guid: 1168b485792a65e4cae94579c5d9bef4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900735512098620894, guid: 1168b485792a65e4cae94579c5d9bef4, type: 3}
+      propertyPath: m_Name
+      value: BG 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888492272573297775, guid: 1168b485792a65e4cae94579c5d9bef4, type: 3}
+      propertyPath: m_Name
+      value: BG 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5713114215421475081, guid: 1168b485792a65e4cae94579c5d9bef4, type: 3}
+      propertyPath: parallaxMultiplier
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8763613379635994441, guid: 1168b485792a65e4cae94579c5d9bef4, type: 3}
+      propertyPath: m_Name
+      value: BG 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
