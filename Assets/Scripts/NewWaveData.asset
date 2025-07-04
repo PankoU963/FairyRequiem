@@ -21,6 +21,6 @@ MonoBehaviour:
   - {fileID: 1057375926736706247, guid: e8169bc1b95fc384f998fa15f7ecc2a6, type: 3}
   - {fileID: 1958371544231664328, guid: 9d736f7673ec4784f8abee166eeffb30, type: 3}
   - {fileID: 7975298371753248170, guid: 8ac7b3ebdc6da9d4dbf562a3b6fe93ef, type: 3}
-  amount2: 030000000300000003000000
+  amount2: 010000000100000001000000
   enemyPrefab3: []
   amount3: 
