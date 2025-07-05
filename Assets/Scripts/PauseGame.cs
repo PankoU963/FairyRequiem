@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour
 {
@@ -7,24 +8,22 @@ public class PauseGame : MonoBehaviour
 
     void Start()
     {
-
+        Time.timeScale = 1;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Debug.Log("noda");
-
+        if (!gamePaused)
+        {
+            Resume();
+        }
+        else
+        {
+            Pause();
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (gamePaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
+            gamePaused = !gamePaused;
         }
 
     }
@@ -33,13 +32,21 @@ public class PauseGame : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
-        gamePaused = false;
     }
 
     public void Pause()
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
-        gamePaused = true;
+    }
+
+    public void CloseMenu()
+    {
+        gamePaused = false;
+    }
+    public void Menu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
     }
 }
