@@ -354,7 +354,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""ade0d7cb-6298-4755-8b77-e4ea30f4bf8b"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Hold(duration=0.25)"",
+                    ""interactions"": ""Hold(duration=0.3,pressPoint=0.5)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Attack"",
