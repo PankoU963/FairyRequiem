@@ -207,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 1812891417}
   serializedVersion: 2
   m_LocalRotation: {x: 0.13485095, y: 0, z: 0, w: 0.9908659}
-  m_LocalPosition: {x: 0, y: 7.41, z: -12.3}
+  m_LocalPosition: {x: 0, y: 7.59, z: -12.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2020,11 +2020,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39973487d3750f14092663c895a87ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxChargeTime: 3
+  maxChargeTime: 1.6
   minChargeTime: 0.3
   baseDamage: 10
   maxExtraDamage: 20
   animator: {fileID: 3498059860234449449}
+  chargeBarPrefab: {fileID: 5456485166359351575, guid: 6f1ae97ab8089ef429cca4ed0474fb22, type: 3}
 --- !u!1 &7950845824982628347
 GameObject:
   m_ObjectHideFlags: 0
