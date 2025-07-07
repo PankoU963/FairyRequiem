@@ -3,7 +3,7 @@ using UnityEngine;
 public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] private int maxHealth = 100;
-    private int currentHealth;
+    [SerializeField] private int currentHealth;
 
     public delegate void HealthChanged(int current, int max);
     public event HealthChanged OnHealthChanged;
@@ -12,7 +12,7 @@ public class Health : MonoBehaviour, IDamageable
     public event Death OnDeath;
 
     public int MaxHealth { get => maxHealth; set => maxHealth = value; }
-    public int CurrentHealth { get => currentHealth; set => currentHealth = value; }
+    public int CurrentHealth { get => currentHealth; set => currentHealth = Mathf.Clamp(value, 0, maxHealth); }
     void Awake()
     {
         CurrentHealth = MaxHealth;
