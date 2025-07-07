@@ -1,75 +1,100 @@
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
     public EnemySpawnData enemysToSpawn;
-
     public Transform[] spawnPoints;
 
-    [SerializeField] GameObject wallF, WallB;
+    [SerializeField] private GameObject wallF, WallB;
 
-    private bool trigger;
+    [SerializeField] GameObject zonaFija;
 
-    private CameraMovement cameraMain;
+    private int currentWave = 0;
+    private bool isSpawning = false;
+    private bool activated = false;
 
-    private Transform zone;
-
-    [SerializeField] private List<GameObject> enemiesRemaining = new List<GameObject>();
-    private void Start()
-    {
-        cameraMain = Camera.main.GetComponent<CameraMovement>();
-        zone = transform.parent.transform;
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if (trigger)
+        if (activated && !isSpawning && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
-            for (int i = 0; i < enemiesRemaining.Count; i++)
+            currentWave++;
+
+            if (currentWave <= 3)
             {
-                if (enemiesRemaining[i] == null)
-                {
-                    enemiesRemaining.RemoveAt(i);
-                }
+                StartCoroutine(SpawnWave(currentWave));
             }
-                if (enemiesRemaining.Count == 0)
+            else
             {
-                cameraMain.DesactivarZonaFija();
-                Destroy(zone.gameObject);
+                Debug.Log("mataste a todos, chimba eso");
+                wallF.SetActive(false);
+                WallB.SetActive(false);
+                enabled = false; // Desactiva este script
+            }
+
+            if (currentWave >= 3)
+            {
+                Destroy(zonaFija);
             }
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        
+        Debug.Log("si choco este hptsdadsadsadadsadadsdagdsgaghfdhsa");
+        if (other.CompareTag("Player") && !activated)
         {
-            if (trigger) return;
+            activated = true;
+            wallF.SetActive(true);
+            WallB.SetActive(true);
 
-            cameraMain.ActivarZonaFija(zone);
-            wallF.gameObject.SetActive(true);
-            WallB.gameObject.SetActive(true);
-            SpawnEnemies();
-            trigger = true;
+            currentWave = 1;
+
+            if (currentWave <= 3)
+            {
+                StartCoroutine(SpawnWave(currentWave));
+            }
+            
+                
         }
     }
 
-    void SpawnEnemies()
+    IEnumerator SpawnWave(int waveNumber)
     {
-        Debug.Log("spawneo de enemigos");
-        for (int i = 0; i < enemysToSpawn.enemyPrefab.Count; i++)
+        isSpawning = true;
+
+        Debug.Log("2 segundos para la ola: " + waveNumber);
+        yield return new WaitForSeconds(2f);
+
+        Debug.Log("oleada  " + waveNumber);
+
+        if (waveNumber == 1)
         {
-            for (int j = 0; j < enemysToSpawn.amount[i]; j++)
+            SpawnFromList(enemysToSpawn.enemyPrefab1, enemysToSpawn.amount1);
+        }
+        else if (waveNumber == 2)
+        {
+            SpawnFromList(enemysToSpawn.enemyPrefab2, enemysToSpawn.amount2);
+        }
+        else if (waveNumber == 3)
+        {
+            SpawnFromList(enemysToSpawn.enemyPrefab3, enemysToSpawn.amount3);
+        }
+        
+        isSpawning = false;
+    }
+
+    void SpawnFromList(System.Collections.Generic.List<GameObject> prefabs, System.Collections.Generic.List<int> amounts)
+    {
+        for (int i = 0; i < prefabs.Count; i++)
+        {
+            for (int j = 0; j < amounts[i]; j++)
             {
                 Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-                Debug.Log("enemigo spawneado"+j);
-                GameObject enemy = Instantiate(enemysToSpawn.enemyPrefab[i], spawnPoint.position,spawnPoint.rotation);
-                enemiesRemaining.Add(enemy);
+                Instantiate(prefabs[i], spawnPoint.position, spawnPoint.rotation);
             }
         }
+
     }
-
-
 }
