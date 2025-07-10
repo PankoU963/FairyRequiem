@@ -14,6 +14,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
     private bool isSpawning = false;
     private bool activated = false;
 
+    private CameraMovement cameraMovement;
+
+    private void Start()
+    {
+        cameraMovement = Camera.main.GetComponent<CameraMovement>();
+    }
+
     void Update()
     {
         if (activated && !isSpawning && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
@@ -34,6 +41,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
             if (currentWave >= 3)
             {
+                cameraMovement.DesactivarZonaFija();
                 Destroy(zonaFija);
             }
         }
@@ -45,6 +53,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         Debug.Log("si choco este hptsdadsadsadadsadadsdagdsgaghfdhsa");
         if (other.CompareTag("Player") && !activated)
         {
+            cameraMovement.ActivarZonaFija(transform.parent);
             activated = true;
             wallF.SetActive(true);
             WallB.SetActive(true);
