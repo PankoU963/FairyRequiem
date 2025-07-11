@@ -14,13 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Zona: 1
   enemyPrefab1:
-  - {fileID: 1958371544231664328, guid: 9d736f7673ec4784f8abee166eeffb30, type: 3}
-  - {fileID: 7975298371753248170, guid: 8ac7b3ebdc6da9d4dbf562a3b6fe93ef, type: 3}
+  - {fileID: 1210055175576728469, guid: 88acd188c2ad1b940880130f15ca3b80, type: 3}
+  - {fileID: 6235080186492240559, guid: 3c28873920b6b8a4288e7042be2641aa, type: 3}
   amount1: 0100000001000000
   enemyPrefab2:
-  - {fileID: 1057375926736706247, guid: e8169bc1b95fc384f998fa15f7ecc2a6, type: 3}
-  - {fileID: 1958371544231664328, guid: 9d736f7673ec4784f8abee166eeffb30, type: 3}
-  - {fileID: 7975298371753248170, guid: 8ac7b3ebdc6da9d4dbf562a3b6fe93ef, type: 3}
-  amount2: 010000000100000001000000
+  - {fileID: 1210055175576728469, guid: 88acd188c2ad1b940880130f15ca3b80, type: 3}
+  - {fileID: 6235080186492240559, guid: 3c28873920b6b8a4288e7042be2641aa, type: 3}
+  amount2: 0100000001000000
   enemyPrefab3: []
   amount3: 
