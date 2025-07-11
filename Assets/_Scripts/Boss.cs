@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    public enum BossStage { Idle, Start, Attack}
+    public enum BossStage {Fall, Idle, Attack }
     [SerializeField]private BossStage stage;
 
     private Rigidbody rb;
@@ -21,7 +21,7 @@ public class Boss : MonoBehaviour
 
     public void CurrentStage()
     {
-        if(stage == BossStage.Start)
+        if(stage == BossStage.Fall)
         {
             rb.Move()
         }
