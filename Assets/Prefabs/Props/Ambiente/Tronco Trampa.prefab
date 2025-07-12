@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4245073215455582690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1572983915149592855}
+  m_Layer: 0
+  m_Name: Tronco Trampa
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1572983915149592855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4245073215455582690}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2644110500254102600}
+  - {fileID: 3581098549290240749}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6057682993545812317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3581098549290240749}
+  - component: {fileID: 3160027121567976483}
+  m_Layer: 0
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3581098549290240749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6057682993545812317}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.6500788, y: 0.27820435, z: -0.27820423, w: 0.6500788}
+  m_LocalPosition: {x: 2.3, y: 1.54, z: -0.07}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1572983915149592855}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -46.337}
+--- !u!136 &3160027121567976483
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6057682993545812317}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.6045464
+  m_Height: 10.535247
+  m_Direction: 1
+  m_Center: {x: -1.6248151, y: -1.4060663, z: 1.5202754}
+--- !u!1001 &2538760257467569059
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1572983915149592855}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: aa7cf2bd69a9cd746a48419ebd8f84d7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa7cf2bd69a9cd746a48419ebd8f84d7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa7cf2bd69a9cd746a48419ebd8f84d7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa7cf2bd69a9cd746a48419ebd8f84d7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9175255
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa7cf2bd69a9cd746a48419ebd8f84d7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.000000034635622
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa7cf2bd69a9cd746a48419ebd8f84d7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.39767703
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa7cf2bd69a9cd746a48419ebd8f84d7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00000001501189
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa7cf2bd69a9cd746a48419ebd8f84d7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa7cf2bd69a9cd746a48419ebd8f84d7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa7cf2bd69a9cd746a48419ebd8f84d7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aa7cf2bd69a9cd746a48419ebd8f84d7, type: 3}
+      propertyPath: m_Name
+      value: TRONCO PISO
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa7cf2bd69a9cd746a48419ebd8f84d7, type: 3}
+--- !u!4 &2644110500254102600 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aa7cf2bd69a9cd746a48419ebd8f84d7, type: 3}
+  m_PrefabInstance: {fileID: 2538760257467569059}
+  m_PrefabAsset: {fileID: 0}
