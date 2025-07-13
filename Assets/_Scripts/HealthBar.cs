@@ -7,7 +7,7 @@ public class HealthBar : MonoBehaviour
     private Health playerHealth;
     void Start()
     {
-        slider = transform.GetChild(1).GetComponent<Slider>();
+        slider = transform.GetChild(1).GetChild(0).GetComponent<Slider>();
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
     }
 
