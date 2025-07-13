@@ -414,6 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
 --- !u!54 &8064898458554516255
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -453,7 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 335648a4356eb8c4a80da3548a926689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 2614340150062916697}
   arrowPrefab: {fileID: 5695477314790385396, guid: b43d00d7253773841b88da23da3a237c, type: 3}
   damageAmount: 5
   initialSpeed: 10
@@ -1014,6 +1015,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5418284338790178828}
+  - {fileID: 2614340150062916697}
   m_Father: {fileID: 2511194011554554354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2533626869150258273
@@ -1356,13 +1358,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3387780246139502307}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6185896, y: -0.6798211, z: -0.26512787, w: 0.2913717}
-  m_LocalPosition: {x: 0.176, y: -1.133, z: 0.355}
-  m_LocalScale: {x: 80, y: 80, z: 80}
+  m_LocalRotation: {x: 0.52656436, y: -0.84091544, z: -0.017236833, w: 0.12366906}
+  m_LocalPosition: {x: 0.14, y: -0.009, z: 0.043}
+  m_LocalScale: {x: 117.840004, y: 117.840004, z: 117.840004}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 907617466412379232}
-  m_LocalEulerAnglesHint: {x: 180, y: 46.4, z: 95.4}
+  m_Father: {fileID: 1146275791689355388}
+  m_LocalEulerAnglesHint: {x: 174.189, y: 13.139008, z: 476.562}
 --- !u!33 &1434355896435452924
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2074,7 +2076,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2898138154153568256}
-  - {fileID: 2614340150062916697}
   m_Father: {fileID: 2532827344372393611}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5272273580919334517

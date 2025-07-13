@@ -3,7 +3,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 public class EnemiesBase : MonoBehaviour
 {
-    private enum EnemyType {Melee, Range}
+    private enum EnemyType {Melee, Range, BigMelee}
 
     private NavMeshAgent enemyAgent;
     private Animator animator;
@@ -56,8 +56,6 @@ public class EnemiesBase : MonoBehaviour
     {
         if (healthBarCanvas != null && healthBarLookAtCamera != null)
         {
-
-            // Opción 2 (más simple): copia la rotación de la cámara (solo Y si quieres)
             healthBarCanvas.forward = healthBarLookAtCamera.forward;
         }
     }
@@ -70,11 +68,12 @@ public class EnemiesBase : MonoBehaviour
 
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
 
-        SmoothLookAt(currentTarget);
+
         if (!hurt)
         {
             if (enemyType == EnemyType.Melee)
             {
+                SmoothLookAt(currentTarget);
                 if (isAttacking)
                 {
                     enemyAgent.isStopped = true;
@@ -110,8 +109,51 @@ public class EnemiesBase : MonoBehaviour
                     }
                 }
             }
+            if (enemyType == EnemyType.BigMelee)
+            {
+                if (isAttacking)
+                {
+                    enemyAgent.isStopped = true;
+                    if (stateInfo.IsName("Attack") && stateInfo.normalizedTime >= 1f)
+                    {
+                        isAttacking = false;
+                        animator.SetBool("Attack", false);
+                    }
+                }
+                else
+                {
+                    SmoothLookAt(currentTarget);
+                }
+
+                if (moveDistance <= AttackDistance)
+                {
+                    if (!isAttacking && stateInfo.IsName("Attack") == false)
+                    {
+                        isAttacking = true;
+                        enemyAgent.ResetPath();
+                        enemyAgent.isStopped = true;
+                        enemyAgent.velocity = Vector3.zero;
+                        animator.SetBool("Attack", true);
+                        animator.SetFloat("Move", 0);
+                        SmoothLookAt(currentTarget);
+                    }
+                }
+                else
+                {
+
+                    if (!isAttacking)
+                    {
+                        SmoothLookAt(currentTarget);
+                        enemyAgent.isStopped = false;
+                        enemyAgent.SetDestination(currentTarget.position);
+                        animator.SetFloat("Move", 1);
+                        animator.SetBool("Attack", false);
+                    }
+                }
+            }
             if (enemyType == EnemyType.Range)
             {
+                SmoothLookAt(currentTarget);
                 if (isAttacking)
                 {
                     enemyAgent.isStopped = true;
@@ -172,11 +214,13 @@ public class EnemiesBase : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        hurt = true;
-        animator.SetTrigger("Hurt");
-        animator.SetBool("Attack", false);
-        isAttacking = false;
-
+        if(enemyType != EnemyType.BigMelee)
+        {
+            hurt = true;
+            animator.SetTrigger("Hurt");
+            animator.SetBool("Attack", false);
+            isAttacking = false;
+        }
         health.TakeDamage(amount);
         UpdateHealth(health.CurrentHealth, health.MaxHealth);
     }
