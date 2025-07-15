@@ -7,7 +7,7 @@ public class BossAnimatorControler : MonoBehaviour
 
     void Start()
     {
-        boss = GetComponent<Boss>();
+        boss = GetComponentInParent<Boss>();
         animator = GetComponent<Animator>();
     }
 
@@ -29,6 +29,20 @@ public class BossAnimatorControler : MonoBehaviour
             case Boss.BossStage.Scare:
                 animator.Play("Boss_Scare");
                 break;
+            case Boss.BossStage.FallEnd:
+                animator.Play("Boss_FallEnd");
+                break;
         }
+    }
+    public void OnAttackAnimationEnd(int stateInfo)
+    {
+        Debug.Log("Animation Event");
+        if (stateInfo == 0)
+        {
+            Debug.Log("Start Event");
+            return;
+        }
+        Debug.Log("End Event");
+        boss.stage = Boss.BossStage.Idle;
     }
 }

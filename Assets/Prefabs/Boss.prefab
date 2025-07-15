@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1978940133142270822}
-  - component: {fileID: 8288786926573566233}
   - component: {fileID: 1683755810163093325}
   - component: {fileID: 4306477950262902271}
+  - component: {fileID: 2284150101305917265}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -35,22 +35,6 @@ Transform:
   - {fileID: 1192020037798249977}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8288786926573566233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2482689333580641462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2211c5537f782e45ad7dfed155adb12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stage: 0
-  vida: 3
-  attackInterval: 10
-  tronco: {fileID: 0}
 --- !u!54 &1683755810163093325
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -101,6 +85,22 @@ CapsuleCollider:
   m_Height: 2.891054
   m_Direction: 1
   m_Center: {x: 0, y: 1.4642674, z: 0}
+--- !u!114 &2284150101305917265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2482689333580641462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2211c5537f782e45ad7dfed155adb12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 0
+  vida: 3
+  attackInterval: 10
+  tronco: {fileID: 0}
 --- !u!1001 &1657428660549952018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -160,6 +160,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b456c0e7e5daac1469179a18838f4e72, type: 3}
       insertIndex: -1
       addedObject: {fileID: 405499018062694302}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b456c0e7e5daac1469179a18838f4e72, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4103632103950268330}
   m_SourcePrefab: {fileID: 100100000, guid: b456c0e7e5daac1469179a18838f4e72, type: 3}
 --- !u!4 &1192020037798249977 stripped
 Transform:
@@ -193,3 +196,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4103632103950268330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999940475744460611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d296584807df1408ee57413bd5c7ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

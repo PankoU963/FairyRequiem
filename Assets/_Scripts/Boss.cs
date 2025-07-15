@@ -1,12 +1,13 @@
 using UnityEngine;
+using System.Collections;
 
 public class Boss : MonoBehaviour
 {
-    public enum BossStage { Fall, Idle, Attack, Scare }
+    [SerializeField] public enum BossStage { Fall, Idle, Attack, Scare, FallEnd }
     [SerializeField] public BossStage stage = BossStage.Fall;
     [SerializeField] private int vida = 3;
     [SerializeField] private float attackInterval = 10f;
-    private float attackTimer = 0f;
+    [SerializeField] private float attackTimer = 0f;
 
     private Rigidbody rb;
     public GameObject tronco;
@@ -28,19 +29,22 @@ public class Boss : MonoBehaviour
                 attackTimer += Time.deltaTime;
                 if (attackTimer >= attackInterval)
                 {
-                    stage = BossStage.Attack;
                     attackTimer = 0f;
+                    Debug.Log("Boss is attacking!");
+                    stage = BossStage.Attack;
                 }
                 break;
             case BossStage.Attack:
                 // Aquí va la lógica de ataque
-                Debug.Log("Boss is attacking!");
-                stage = BossStage.Idle;
                 break;
             case BossStage.Scare:
                 Debug.Log("Boss is scared!");
                 gameObject.SetActive(false); // Desactiva el boss o realiza otra acción
                 // Animación de miedo o derrota
+                break;
+            case BossStage.FallEnd:
+                // Espera 1 segundo antes de pasar a Idle
+                // El cambio de estado se gestiona en la corrutina EnterFallEndThenIdle
                 break;
         }
     }
@@ -49,10 +53,18 @@ public class Boss : MonoBehaviour
     {
         if (stage == BossStage.Fall && collision.gameObject.CompareTag("Ground"))
         {
-            stage = BossStage.Idle;
-            attackTimer = 0f;
+            StartCoroutine(EnterFallEndThenIdle());
         }
     }
+
+    private IEnumerator EnterFallEndThenIdle()
+    {
+        stage = BossStage.FallEnd;
+        yield return new WaitForSeconds(1f);
+        stage = BossStage.Idle;
+        attackTimer = 0f;
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if ((stage == BossStage.Idle || stage == BossStage.Attack) && other.gameObject.CompareTag("Weapon"))
