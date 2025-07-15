@@ -718,6 +718,7 @@ GameObject:
   - component: {fileID: 987051227842683189}
   - component: {fileID: 3294375442701139659}
   - component: {fileID: 2202895634640580251}
+  - component: {fileID: 6490285000964434778}
   m_Layer: 0
   m_Name: Player (1)
   m_TagString: Player
@@ -928,12 +929,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootPool: {fileID: 5775785307518420862}
-  numberOfRoots: 6
-  radius: 2
+  numberOfRoots: 20
+  radius: 3
   riseSpeed: 2
-  rotationSpeed: 180
-  duration: 2
+  rotationSpeed: 50
+  duration: 0.5
+  damageAmount: 50
   areaTriggerPrefab: {fileID: 871597223887060649, guid: 95f2f8832e6d1344d982c28fe86de54d, type: 3}
+  animator: {fileID: 3016889429543179295}
+  cost: 30
+--- !u!114 &6490285000964434778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828257934271459622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3898eb035b0954b8c8639b32790b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxMana: 90
+  currentMana: 0
 --- !u!1 &1870120850215495866
 GameObject:
   m_ObjectHideFlags: 0
@@ -3445,6 +3463,10 @@ PrefabInstance:
     - target: {fileID: 9145723598871609674, guid: fbf2538600e95e84c98cc178f7ae744f, type: 3}
       propertyPath: m_Name
       value: RootPool
+      objectReference: {fileID: 0}
+    - target: {fileID: 9145723598871609674, guid: fbf2538600e95e84c98cc178f7ae744f, type: 3}
+      propertyPath: m_Layer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

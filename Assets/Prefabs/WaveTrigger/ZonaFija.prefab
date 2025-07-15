@@ -138,6 +138,7 @@ MonoBehaviour:
   - {fileID: 5762838086348744186}
   wallF: {fileID: 6527879908846558651}
   WallB: {fileID: 5401114916742402264}
+  zonaFija: {fileID: 2386194437509526885}
 --- !u!1 &1675745313062913549
 GameObject:
   m_ObjectHideFlags: 0
