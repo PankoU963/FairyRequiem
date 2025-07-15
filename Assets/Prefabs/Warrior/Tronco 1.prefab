@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1586820727307478275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3806171153794364001}
+  m_Layer: 0
+  m_Name: Tronco 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3806171153794364001
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586820727307478275}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -25, y: 0.9, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7834750077040537766}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7723716045185898317
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3806171153794364001}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 138e23507d86db7498f8e454ce6b9534, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.07238102
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 138e23507d86db7498f8e454ce6b9534, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9206141
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 138e23507d86db7498f8e454ce6b9534, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.159025
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 138e23507d86db7498f8e454ce6b9534, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.58433104
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 138e23507d86db7498f8e454ce6b9534, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.58433133
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 138e23507d86db7498f8e454ce6b9534, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.39819214
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 138e23507d86db7498f8e454ce6b9534, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.39819235
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 138e23507d86db7498f8e454ce6b9534, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 138e23507d86db7498f8e454ce6b9534, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 138e23507d86db7498f8e454ce6b9534, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 138e23507d86db7498f8e454ce6b9534, type: 3}
+      propertyPath: m_Name
+      value: Tronco
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 138e23507d86db7498f8e454ce6b9534, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2675490035732703074}
+  m_SourcePrefab: {fileID: 100100000, guid: 138e23507d86db7498f8e454ce6b9534, type: 3}
+--- !u!1 &7489854533209123356 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 138e23507d86db7498f8e454ce6b9534, type: 3}
+  m_PrefabInstance: {fileID: 7723716045185898317}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2675490035732703074
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7489854533209123356}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2832250006122358947, guid: 138e23507d86db7498f8e454ce6b9534, type: 3}
+--- !u!4 &7834750077040537766 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 138e23507d86db7498f8e454ce6b9534, type: 3}
+  m_PrefabInstance: {fileID: 7723716045185898317}
+  m_PrefabAsset: {fileID: 0}
