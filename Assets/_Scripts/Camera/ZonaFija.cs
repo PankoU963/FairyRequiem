@@ -11,6 +11,13 @@ public class ZonaFija : MonoBehaviour
             camara.ActivarZonaFija(transform);
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            camara.ActivarZonaFija(transform);
+        }
+    }
 
     private void OnTriggerExit(Collider other)
     {
