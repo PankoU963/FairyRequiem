@@ -18,6 +18,11 @@ public class RootArea : MonoBehaviour
             {
                 enemiesBase.TakeDamage(damageAmount);
             }
+            IDestroyable destroyable = other.GetComponent<IDestroyable>();
+            if(destroyable != null)
+            {
+                destroyable.TakeDamage(damageAmount);
+            }
         }
     }
 }

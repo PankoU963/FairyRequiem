@@ -13,7 +13,8 @@ public class Ability : MonoBehaviour
 
     public GameObject areaTriggerPrefab;
 
-    bool abilityActive;
+    private bool abilityActive;
+    private bool bufferAbility;
 
     [SerializeField] private Animator animator;
 
@@ -39,8 +40,9 @@ public class Ability : MonoBehaviour
             abilityActive = false;
             if(playerMana.CurrentMana >= cost)
             {
-                if (Input.GetKeyDown(KeyCode.Z))
+                if (Input.GetKeyDown(KeyCode.Z) && !bufferAbility)
                 {
+                    bufferAbility = true;
                     animator.SetTrigger("Ability");
                     playerMana.CurrentMana -= cost;
                 }
@@ -54,6 +56,7 @@ public class Ability : MonoBehaviour
             {
                 abilityActive = true;
                 SpawnRoots();
+                bufferAbility = false;
             }
         }
 
