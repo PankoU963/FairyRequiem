@@ -8267,6 +8267,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fogata (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8893490565282343549, guid: 396a2c099c543094ba0bfd03d33ff4a0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.87
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
