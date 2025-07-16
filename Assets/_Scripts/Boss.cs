@@ -6,26 +6,48 @@ public class Boss : MonoBehaviour
     [SerializeField] public enum BossStage { Fall, Idle, Attack, Scare, FallEnd }
     [SerializeField] public BossStage stage = BossStage.Fall;
     [SerializeField] private int vida = 3;
-    [SerializeField] private float attackInterval = 10f;
+    [SerializeField] private float attackInterval = 5f;
     [SerializeField] private float attackTimer = 0f;
+    [SerializeField] private GameObject[] enemies;
+    [SerializeField] Transform enemiesSpawn;
+    private bool isSpawn = false;
+
+    private Animator animator;
 
     private Rigidbody rb;
     public GameObject tronco;
 
     void Start()
     {
+        animator = transform.GetChild(0).GetComponent<Animator>();
+
         rb = GetComponent<Rigidbody>();
+        rb.useGravity = false;
+        tronco = GameObject.FindGameObjectWithTag("LogBoss");
+        enemiesSpawn = GameObject.FindGameObjectWithTag("EnemieSpawnBoss").transform;
         stage = BossStage.Fall;
     }
 
     void Update()
     {
+        transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform.position);
         switch (stage)
         {
             case BossStage.Fall:
-                // Espera a tocar el suelo
+                Vector3 direction = (tronco.transform.position - transform.position).normalized;
+
+                rb.linearVelocity = direction * 20f;
+                if (Vector3.Distance(transform.position,tronco.transform.position) <= 0.5f)
+                {
+                    rb.isKinematic = false;
+                    rb.useGravity = true;
+                    rb.linearVelocity = Vector3.zero;
+                    StartCoroutine(EnterFallEndThenIdle());
+                }
                 break;
             case BossStage.Idle:
+                rb.isKinematic = true;
+                rb.useGravity = false;
                 attackTimer += Time.deltaTime;
                 if (attackTimer >= attackInterval)
                 {
@@ -35,7 +57,13 @@ public class Boss : MonoBehaviour
                 }
                 break;
             case BossStage.Attack:
-                // Aquí va la lógica de ataque
+                
+                if(!isSpawn)
+                {
+                    Instantiate(enemies[Random.Range(0, 3)], enemiesSpawn.position, Quaternion.identity);
+                    isSpawn = true;
+                }
+                StartCoroutine(EntertoIdle());
                 break;
             case BossStage.Scare:
                 Debug.Log("Boss is scared!");
@@ -49,13 +77,13 @@ public class Boss : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (stage == BossStage.Fall && collision.gameObject.CompareTag("Ground"))
-        {
-            StartCoroutine(EnterFallEndThenIdle());
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (stage == BossStage.Fall && collision.gameObject.CompareTag("Ground"))
+    //    {
+    //        StartCoroutine(EnterFallEndThenIdle());
+    //    }
+    //}
 
     private IEnumerator EnterFallEndThenIdle()
     {
@@ -63,6 +91,13 @@ public class Boss : MonoBehaviour
         yield return new WaitForSeconds(1f);
         stage = BossStage.Idle;
         attackTimer = 0f;
+    }
+    private IEnumerator EntertoIdle()
+    {
+        yield return new WaitForSeconds(3f);
+        stage = BossStage.Idle;
+        attackTimer = 0f;
+        isSpawn = false;
     }
 
     void OnTriggerEnter(Collider other)

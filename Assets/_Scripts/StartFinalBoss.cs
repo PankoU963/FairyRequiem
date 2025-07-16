@@ -28,7 +28,7 @@ public class StartFinalBoss : MonoBehaviour
             cameraMovement.ActivarZonaFija(transform.parent);
             activated = true;
 
-            GameObject currentBoss = Instantiate(boss, spawnBossLocation.position, Quaternion.identity);
+            GameObject currentBoss = Instantiate(boss, spawnBossLocation.position + new Vector3(0,10,0), Quaternion.identity);
 
             wallF.SetActive(true);
             WallB.SetActive(true);

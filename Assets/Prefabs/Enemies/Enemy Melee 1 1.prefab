@@ -1073,7 +1073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a62b67dc0a93294999af9f3162e7d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
+  damageAmount: 5
   attackAnimator: {fileID: 6873491763916349630}
 --- !u!1 &4468409538403302399
 GameObject:
@@ -1643,7 +1643,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6da5a2fe61e31541909cd432f0b311d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 50
+  currentHealth: 0
+  manaBall: {fileID: 937126162727368910, guid: 5b542031438d2bd4d8d2ee227547b2f4, type: 3}
 --- !u!54 &6165561600795714602
 Rigidbody:
   m_ObjectHideFlags: 0

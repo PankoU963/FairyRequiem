@@ -413,8 +413,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6da5a2fe61e31541909cd432f0b311d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 30
   currentHealth: 0
+  manaBall: {fileID: 937126162727368910, guid: 5b542031438d2bd4d8d2ee227547b2f4, type: 3}
 --- !u!54 &8064898458554516255
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -456,7 +457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 2614340150062916697}
   arrowPrefab: {fileID: 5695477314790385396, guid: b43d00d7253773841b88da23da3a237c, type: 3}
-  damageAmount: 5
+  damageAmount: 3
   initialSpeed: 10
   arcHeight: 0.5
 --- !u!1 &1313792497991948851

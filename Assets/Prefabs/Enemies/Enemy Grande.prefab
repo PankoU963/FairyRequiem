@@ -2278,8 +2278,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6da5a2fe61e31541909cd432f0b311d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 80
   currentHealth: 0
+  manaBall: {fileID: 937126162727368910, guid: 5b542031438d2bd4d8d2ee227547b2f4, type: 3}
 --- !u!54 &4267069849411734804
 Rigidbody:
   m_ObjectHideFlags: 0

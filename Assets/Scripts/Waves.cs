@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Waves : MonoBehaviour
 {
     public EnemySpawnData enemysToSpawn;
     public Transform[] spawnPoints;
@@ -33,7 +33,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
             }
             else
             {
-                Debug.Log("mataste a todos, chimba eso");
                 wallF.SetActive(false);
                 WallB.SetActive(false);
                 enabled = false; // Desactiva este script
@@ -49,8 +48,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        
-        Debug.Log("si choco este hptsdadsadsadadsadadsdagdsgaghfdhsa");
         if (other.CompareTag("Player") && !activated)
         {
             cameraMovement.ActivarZonaFija(transform.parent);
@@ -73,10 +70,9 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         isSpawning = true;
 
-        Debug.Log("2 segundos para la ola: " + waveNumber);
-        yield return new WaitForSeconds(2f);
 
-        Debug.Log("oleada  " + waveNumber);
+        yield return new WaitForSeconds(0.5f);
+
 
         if (waveNumber == 1)
         {

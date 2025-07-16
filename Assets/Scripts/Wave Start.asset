@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81ecd0f34bb56045a4300e4cd5a30c2, type: 3}
+  m_Name: Wave Start
+  m_EditorClassIdentifier: 
+  Zona: 0
+  enemyPrefab1:
+  - {fileID: 6235080186492240559, guid: 3c28873920b6b8a4288e7042be2641aa, type: 3}
+  - {fileID: 1210055175576728469, guid: 88acd188c2ad1b940880130f15ca3b80, type: 3}
+  - {fileID: 7641837134276249220, guid: c942e63ad779e1247a73378b97881faf, type: 3}
+  amount1: 020000000200000000000000
+  enemyPrefab2:
+  - {fileID: 6235080186492240559, guid: 3c28873920b6b8a4288e7042be2641aa, type: 3}
+  - {fileID: 1210055175576728469, guid: 88acd188c2ad1b940880130f15ca3b80, type: 3}
+  - {fileID: 7641837134276249220, guid: c942e63ad779e1247a73378b97881faf, type: 3}
+  amount2: 010000000200000002000000
+  enemyPrefab3:
+  - {fileID: 6235080186492240559, guid: 3c28873920b6b8a4288e7042be2641aa, type: 3}
+  - {fileID: 1210055175576728469, guid: 88acd188c2ad1b940880130f15ca3b80, type: 3}
+  - {fileID: 7641837134276249220, guid: c942e63ad779e1247a73378b97881faf, type: 3}
+  amount3: 000000000000000000000000
