@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Prefabs/Props/Prefabs/Tronco trampa/TRONCO PISO.fbx.meta
-guid: aa7cf2bd69a9cd746a48419ebd8f84d7
-========
-guid: 3e7bd574783ff5e428d3c6ed37ee968d
->>>>>>>> Habilidad:Assets/Prefabs/Warrior/Animations/Character@Sword And Shield Casting.fbx.meta
+guid: dea43f16fa3992a48ae2df655d8edcee
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -11,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: 40b24fca34b7dc841b90c7c2846f4bb8, type: 2}
+      name: Material.003
+    second: {fileID: 2100000, guid: cd56ec6993e144d4388e0470ccefce69, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

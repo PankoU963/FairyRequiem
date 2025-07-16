@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Prefabs/Props/Prefabs/Tronco trampa/TRONCO PISO.fbx.meta
-guid: aa7cf2bd69a9cd746a48419ebd8f84d7
-========
-guid: 3e7bd574783ff5e428d3c6ed37ee968d
->>>>>>>> Habilidad:Assets/Prefabs/Warrior/Animations/Character@Sword And Shield Casting.fbx.meta
+guid: a5fea463edf8584408bdc4cc6377488f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -11,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: 40b24fca34b7dc841b90c7c2846f4bb8, type: 2}
+      name: Root
+    second: {fileID: 2100000, guid: 93b0a8179755e7f468fa8ef2f8a24cae, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: WhatsApp Image 2025-07-14 at 1.52.32 PM
+    second: {fileID: 2800000, guid: d6186283ba41c864f93e055cca2f8829, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

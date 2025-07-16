@@ -27,9 +27,12 @@ public class ComboSystem : MonoBehaviour
     }
     void Update()
     {
-        playerMovement.isAttack = isAttacking;
-
         stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+        if (!stateInfo.IsName("Ability"))
+        {
+            playerMovement.isAttack = isAttacking;
+        }
         animator.SetBool("Attack", isAttacking);
 
         // Si se detecta la tecla X, empieza el buffer
