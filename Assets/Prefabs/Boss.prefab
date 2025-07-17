@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 0
-  vida: 3
-  attackInterval: 4
+  vida: 5
+  attackInterval: 5
   attackTimer: 0
   enemies:
   - {fileID: 6235080186492240559, guid: 3c28873920b6b8a4288e7042be2641aa, type: 3}

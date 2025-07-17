@@ -5,17 +5,17 @@ public class Boss : MonoBehaviour
 {
     [SerializeField] public enum BossStage { Fall, Idle, Attack, Scare, FallEnd }
     [SerializeField] public BossStage stage = BossStage.Fall;
-    [SerializeField] private int vida = 3;
+    [SerializeField] private int vida = 5;
     [SerializeField] private float attackInterval = 5f;
     [SerializeField] private float attackTimer = 0f;
     [SerializeField] private GameObject[] enemies;
     [SerializeField] Transform enemiesSpawn;
     private bool isSpawn = false;
-
     private Animator animator;
-
     private Rigidbody rb;
     public GameObject tronco;
+    private Log logScript;
+    private float lastLogDurability = 1;
 
     void Start()
     {
@@ -26,25 +26,48 @@ public class Boss : MonoBehaviour
         tronco = GameObject.FindGameObjectWithTag("LogBoss");
         enemiesSpawn = GameObject.FindGameObjectWithTag("EnemieSpawnBoss").transform;
         stage = BossStage.Fall;
+
+        logScript = tronco.GetComponentInParent<Log>();
+        lastLogDurability = logScript.CurrentDurability;
     }
 
     void Update()
     {
-        transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform.position);
+        if (vida > 1) transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform.position);
+        else if (vida <= 1) transform.LookAt(transform.position + Vector3.left);
+
+        if (logScript.CurrentDurability != lastLogDurability)
+        {
+            lastLogDurability = logScript.CurrentDurability;
+            RecibirDanio(1);
+            stage = BossStage. Fall;
+        }
+
         switch (stage)
         {
             case BossStage.Fall:
-                Vector3 direction = (tronco.transform.position - transform.position).normalized;
+                if (vida > 1)
+                {
+                    Vector3 direction = (tronco.transform.position - transform.position).normalized;
 
-                rb.linearVelocity = direction * 20f;
-                if (Vector3.Distance(transform.position,tronco.transform.position) <= 0.5f)
+                    rb.linearVelocity = direction * 20f;
+                    if (Vector3.Distance(transform.position, tronco.transform.position) <= 0.5f)
+                    {
+                        rb.isKinematic = false;
+                        rb.useGravity = true;
+                        rb.linearVelocity = Vector3.zero;
+                        StartCoroutine(EnterFallEndThenIdle());
+                    }
+                    break;
+                }
+                else
                 {
                     rb.isKinematic = false;
                     rb.useGravity = true;
-                    rb.linearVelocity = Vector3.zero;
+                    rb.AddForce(Vector3.down);
                     StartCoroutine(EnterFallEndThenIdle());
+                    break;
                 }
-                break;
             case BossStage.Idle:
                 rb.isKinematic = true;
                 rb.useGravity = false;
@@ -57,8 +80,8 @@ public class Boss : MonoBehaviour
                 }
                 break;
             case BossStage.Attack:
-                
-                if(!isSpawn)
+
+                if (!isSpawn)
                 {
                     Instantiate(enemies[Random.Range(0, 3)], enemiesSpawn.position, Quaternion.identity);
                     isSpawn = true;
