@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 0
-  vida: 3
+  vida: 5
   attackInterval: 4
   attackTimer: 0
   enemies:
