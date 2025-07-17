@@ -35,12 +35,18 @@ public class Boss : MonoBehaviour
     {
         if (vida > 1) transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform.position);
         else if (vida <= 1) transform.LookAt(transform.position + Vector3.left);
+        
+        if (vida <= 0)
+        {
+            Destroy(gameObject); // Destruye el boss al ser derrotado
+            return;
+        }
 
         if (logScript.CurrentDurability != lastLogDurability)
         {
             lastLogDurability = logScript.CurrentDurability;
             RecibirDanio(1);
-            stage = BossStage. Fall;
+            stage = BossStage.Fall;
         }
 
         switch (stage)
@@ -50,6 +56,7 @@ public class Boss : MonoBehaviour
                 {
                     Vector3 direction = (tronco.transform.position - transform.position).normalized;
 
+                    rb.isKinematic = false;
                     rb.linearVelocity = direction * 20f;
                     if (Vector3.Distance(transform.position, tronco.transform.position) <= 0.5f)
                     {
@@ -90,8 +97,6 @@ public class Boss : MonoBehaviour
                 break;
             case BossStage.Scare:
                 Debug.Log("Boss is scared!");
-                gameObject.SetActive(false); // Desactiva el boss o realiza otra acción
-                // Animación de miedo o derrota
                 break;
             case BossStage.FallEnd:
                 // Espera 1 segundo antes de pasar a Idle
@@ -112,8 +117,14 @@ public class Boss : MonoBehaviour
     {
         stage = BossStage.FallEnd;
         yield return new WaitForSeconds(1f);
-        stage = BossStage.Idle;
         attackTimer = 0f;
+        if (vida <= 1)
+        {
+            stage = BossStage.Scare;
+            yield break; // Sale de la corrutina si el boss está derrotado
+        }
+        stage = BossStage.Idle;
+        
     }
     private IEnumerator EntertoIdle()
     {
@@ -125,7 +136,7 @@ public class Boss : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if ((stage == BossStage.Idle || stage == BossStage.Attack) && other.gameObject.CompareTag("Weapon"))
+        if ((stage == BossStage.Scare || stage == BossStage.Attack) && other.gameObject.CompareTag("Weapon"))
         {
             RecibirDanio(1);
         }
