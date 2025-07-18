@@ -35,6 +35,7 @@ public class ComboSystem : MonoBehaviour
         // Si se detecta la tecla X, empieza el buffer
         if (Input.GetKeyDown(KeyCode.X))
         {
+           
             pendingAttack = true;
             attackBufferTimer = inputBufferTime;
         }
@@ -71,6 +72,7 @@ public class ComboSystem : MonoBehaviour
         // Reset de combo por inactividad
         if (isAttacking && Time.time - lastAttackTime > comboResetTime)
         {
+            SoundManager.Playsound(SoundType.ATAQUE);
             comboStep = 0;
             isAttacking = false;
             //Debug.Log("Combo reiniciado por inactividad");
