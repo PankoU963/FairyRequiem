@@ -25,6 +25,7 @@ public class ComboSystem : MonoBehaviour
     {
         playerMovement = GetComponent<Movement>();
     }
+
     void Update()
     {
         stateInfo = animator.GetCurrentAnimatorStateInfo(0);
@@ -38,6 +39,7 @@ public class ComboSystem : MonoBehaviour
         // Si se detecta la tecla X, empieza el buffer
         if (Input.GetKeyDown(KeyCode.X))
         {
+           
             pendingAttack = true;
             attackBufferTimer = inputBufferTime;
         }
@@ -57,6 +59,7 @@ public class ComboSystem : MonoBehaviour
                 }
                 else
                 {
+                    
                     if (stateInfo.IsName("Movement") && comboStep == 0) ExecuteComboStep();
                     else if (stateInfo.IsName("Attack 1") && comboStep == 1) ExecuteComboStep();
                     else if (stateInfo.IsName("Attack 2") && comboStep == 2) ExecuteComboStep();
@@ -74,6 +77,7 @@ public class ComboSystem : MonoBehaviour
         // Reset de combo por inactividad
         if (isAttacking && Time.time - lastAttackTime > comboResetTime)
         {
+            
             comboStep = 0;
             isAttacking = false;
             //Debug.Log("Combo reiniciado por inactividad");
@@ -111,7 +115,7 @@ public class ComboSystem : MonoBehaviour
         lastAttackTime = Time.time;
         isAttacking = true;
 
-
+        
 
         switch (step)
         {
