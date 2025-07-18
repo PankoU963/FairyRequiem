@@ -32,7 +32,7 @@ public class Movement : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         characterController = GetComponent<CharacterController>();
-
+        
         moveAction = playerInput.actions["Move"];
         jumpAction = playerInput.actions["Jump"];
 
@@ -53,6 +53,7 @@ public class Movement : MonoBehaviour
         {
             isMoving = movementInput != Vector2.zero ? true : false;
 
+            
             Vector3 moveDir = new Vector3(movementInput.x, 0, movementInput.y);
 
             playerVelocity.x = moveDir.x * moveSpeedX;
@@ -79,6 +80,7 @@ public class Movement : MonoBehaviour
                 playerVelocity.y += gravity * Time.deltaTime;
             }
             characterController.Move(playerVelocity * Time.deltaTime);
+            
         }
     }
 
@@ -93,7 +95,7 @@ public class Movement : MonoBehaviour
             animator.SetFloat("Move", 0f);
         }
     }
-    
+
     public void SetIsAttacking(bool value)
     {
         isAttack = value;
