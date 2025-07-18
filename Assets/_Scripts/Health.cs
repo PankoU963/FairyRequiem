@@ -21,6 +21,15 @@ public class Health : MonoBehaviour, IDamageable
 
     public void TakeDamage(int amount)
     {
+        if (gameObject.tag == "Enemy")
+        {
+            SoundManager.Playsound(SoundType.DAÑO_ENEMIGO);
+        }
+        else
+        {
+            SoundManager.Playsound(SoundType.DAÑO);
+        }
+        
         CurrentHealth -= amount;
         CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
         OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);

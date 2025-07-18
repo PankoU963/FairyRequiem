@@ -9326,6 +9326,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sound Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 917214323746367070, guid: c982857301d938947ab48cfb83d47afe, type: 3}
+      propertyPath: soundList.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 917214323746367070, guid: c982857301d938947ab48cfb83d47afe, type: 3}
+      propertyPath: 'soundList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 918d5274d76844e448b430721863aab4, type: 3}
+    - target: {fileID: 917214323746367070, guid: c982857301d938947ab48cfb83d47afe, type: 3}
+      propertyPath: 'soundList.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 774151c0ba2cca042946441706b18a10, type: 3}
+    - target: {fileID: 917214323746367070, guid: c982857301d938947ab48cfb83d47afe, type: 3}
+      propertyPath: 'soundList.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: cf420fd9c3633934cb149c8ee54cda24, type: 3}
     - target: {fileID: 1267398414318126186, guid: c982857301d938947ab48cfb83d47afe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

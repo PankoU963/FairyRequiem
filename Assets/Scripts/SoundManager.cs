@@ -1,10 +1,13 @@
 using UnityEngine;
 
-public enum SoundType {
+public enum SoundType
+{
     PASOS,
     ATAQUE,
     DAÑO,
     AMBIENTE,
+    FLOR,
+    DAÑO_ENEMIGO
 }
 
 [RequireComponent(typeof(AudioSource))]
