@@ -89,7 +89,6 @@ public class ComboSystem : MonoBehaviour
 
     void ExecuteComboStep()
     {
-        SoundManager.Playsound(SoundType.ATAQUE);
         if (!isAttacking)
         {
             comboStep = 1;
