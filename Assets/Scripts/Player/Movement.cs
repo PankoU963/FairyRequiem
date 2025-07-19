@@ -5,28 +5,25 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class Movement : MonoBehaviour
 {
-    public PlayerInput playerInput;
-    public CharacterController characterController;
+    [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private CharacterController characterController;
 
-    public Animator animator;
-    public bool isMoving;
-    public bool isAttack;
+    [SerializeField] private Animator animator;
+    [SerializeField] private bool isMoving;
+    [SerializeField] public bool isAttack;
 
     private Vector3 playerVelocity;
     private Vector3 moveDirection;
 
-    public float moveSpeedX = 5f;
-    public float moveSpeedY = 2f;
-    public float gravity = -9.81f;
-    public float jumpHeight = 1f;
-    public float rotationSpeed = 10f;
+    [SerializeField] private float moveSpeedX = 5f;
+    [SerializeField] private float moveSpeedY = 2f;
+    [SerializeField] private float gravity = -9.81f;
+    [SerializeField] private float jumpHeight = 1f;
+    [SerializeField] private float rotationSpeed = 10f;
 
-    public InputAction moveAction;
-    public InputAction jumpAction;
-
+    [SerializeField] private InputAction moveAction;
+    [SerializeField] private InputAction jumpAction;
     private Vector2 movementInput;
-
-
 
     void Start()
     {
@@ -38,7 +35,6 @@ public class Movement : MonoBehaviour
 
         moveAction.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
         moveAction.canceled += ctx => movementInput = Vector2.zero;
-
     }
 
     void Update()
@@ -51,7 +47,7 @@ public class Movement : MonoBehaviour
     {
         if (!isAttack)
         {
-            isMoving = movementInput != Vector2.zero ? true : false;
+            isMoving = movementInput != Vector2.zero;
 
             
             Vector3 moveDir = new Vector3(movementInput.x, 0, movementInput.y);
@@ -80,7 +76,6 @@ public class Movement : MonoBehaviour
                 playerVelocity.y += gravity * Time.deltaTime;
             }
             characterController.Move(playerVelocity * Time.deltaTime);
-            
         }
     }
 

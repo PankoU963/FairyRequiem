@@ -55,7 +55,6 @@ public class Ability : MonoBehaviour
                 bufferAbility = false;
             }
         }
-
     }
 
     void SpawnRoots()

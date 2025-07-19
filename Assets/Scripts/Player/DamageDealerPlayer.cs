@@ -3,9 +3,9 @@ using UnityEngine;
 public class DamageDealerPlayer : MonoBehaviour
 {
     [SerializeField] private int damageAmount = 10;
-
     [SerializeField] private Animator attackAnimator;
     [SerializeField] private ComboSystem comboSystem;
+    [SerializeField] private Collider swordCollider;
     private AnimatorStateInfo stateInfo;
     private bool canAttack;
 
@@ -23,13 +23,25 @@ public class DamageDealerPlayer : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(!other.CompareTag("Player") && canAttack)
+        if (!other.CompareTag("Player") && canAttack)
         {
             EnemiesBase enemiesBase = other.GetComponent<EnemiesBase>();
             if (enemiesBase != null)
             {
                 enemiesBase.TakeDamage(damageAmount);
             }
+        }
+    }
+
+    public void SwordColliderActivation(int isActive)
+    {
+        if (isActive == 1)
+        {
+            swordCollider.enabled = true;
+        }
+        else
+        {
+            swordCollider.enabled = false;
         }
     }
 }

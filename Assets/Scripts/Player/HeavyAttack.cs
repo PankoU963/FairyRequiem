@@ -3,10 +3,10 @@ using UnityEngine.InputSystem.Interactions;
 
 public class HeavyAttack : MonoBehaviour
 {
-    public float maxChargeTime = 3f;
-    public float minChargeTime = 0.3f;
-    public float baseDamage = 10f;
-    public float maxExtraDamage = 20f;
+    [SerializeField] private float maxChargeTime = 3f;
+    [SerializeField] private float minChargeTime = 0.3f;
+    [SerializeField] private float baseDamage = 10f;
+    [SerializeField] private float maxExtraDamage = 20f;
 
     private float currentCharge = 0f;
     private bool isCharging = false;
@@ -63,8 +63,6 @@ public class HeavyAttack : MonoBehaviour
         currentCharge = 0f;
         animator.SetTrigger("HeavyAttack");
         animator.speed = 0f;
-        Debug.Log("Cargando ataque...");
-
     }
 
     private void ReleaseAttack()
@@ -79,7 +77,6 @@ public class HeavyAttack : MonoBehaviour
         
         float ratio = Mathf.InverseLerp(minChargeTime, maxChargeTime, currentCharge);
         float totalDamage = baseDamage + ratio * maxExtraDamage;
-        Debug.Log($"¡Ataque pesado ejecutado! Daño: {totalDamage:F1}");
         currentCharge = 0f;
     }
 
@@ -89,7 +86,6 @@ public class HeavyAttack : MonoBehaviour
 
         isAttacking = true;
         animator.SetTrigger("LightAttack");
-        Debug.Log("Ataque básico ejecutado");
 
         Invoke(nameof(EndAttack), 0.6f); // ajusta según duración
     }

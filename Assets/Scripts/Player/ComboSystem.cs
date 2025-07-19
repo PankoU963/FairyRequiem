@@ -33,14 +33,12 @@ public class ComboSystem : MonoBehaviour
         }
         animator.SetBool("Attack", isAttacking);
 
-        // Si se detecta la tecla X, empieza el buffer
         if (Input.GetKeyDown(KeyCode.X))
         {
             pendingAttack = true;
             attackBufferTimer = inputBufferTime;
         }
 
-        // Procesar el ataque si hay uno pendiente
         if (pendingAttack)
         {
             attackBufferTimer -= Time.deltaTime;
@@ -69,7 +67,6 @@ public class ComboSystem : MonoBehaviour
             comboResetTime = stateInfo.length + 0.5f;
         }
 
-        // Reset de combo por inactividad
         if (isAttacking && Time.time - lastAttackTime > comboResetTime)
         {
             comboStep = 0;
@@ -100,7 +97,6 @@ public class ComboSystem : MonoBehaviour
         }
         ExecuteCombo(comboStep);
     }
-
 
     void ExecuteCombo(int step)
     {
