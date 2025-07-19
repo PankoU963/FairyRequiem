@@ -1918,6 +1918,84 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0000005662441, y: 1.1060174, z: 0.03919591}
     m_Extent: {x: 0.45308572, y: 0.76420516, z: 0.4940759}
   m_DirtyAABB: 0
+--- !u!1 &5103172788152287888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8218139419255017646}
+  - component: {fileID: 5310950282599749568}
+  - component: {fileID: 2420541741237885087}
+  - component: {fileID: 8172871815095330343}
+  m_Layer: 0
+  m_Name: espada (1)
+  m_TagString: Weapon
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8218139419255017646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5103172788152287888}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: 0.000000031474364, z: -0.7071068, w: 0.000000008917386}
+  m_LocalPosition: {x: -0.381, y: -0.005005289, z: 0.05400029}
+  m_LocalScale: {x: 58.799995, y: 58.800007, z: 58.8}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 6901452138115982561}
+  m_LocalEulerAnglesHint: {x: 180, y: 90, z: 0}
+--- !u!33 &5310950282599749568
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5103172788152287888}
+  m_Mesh: {fileID: -5002835603401446712, guid: 76f435de3ecf83e4980f4dc24a09e0f9, type: 3}
+--- !u!114 &2420541741237885087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5103172788152287888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f1d927ea509ec46b063c5025c291e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 10
+  attackAnimator: {fileID: 3016889429543179295}
+  comboSystem: {fileID: 3294375442701139659}
+--- !u!65 &8172871815095330343
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5103172788152287888}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.007211978, y: 0.0038899605, z: 0.021472005}
+  m_Center: {x: 0.00013346305, y: 0.0004746121, z: 0.007827712}
 --- !u!1 &5190740823854701098
 GameObject:
   m_ObjectHideFlags: 0
@@ -3321,6 +3399,7 @@ Transform:
   m_Children:
   - {fileID: 8445476760438299253}
   - {fileID: 2242315069599368800}
+  - {fileID: 8218139419255017646}
   m_Father: {fileID: 4517623886034000287}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4667230996532627122
