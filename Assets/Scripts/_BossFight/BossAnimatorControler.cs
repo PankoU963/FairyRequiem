@@ -18,23 +18,23 @@ public class BossAnimatorControler : MonoBehaviour
         switch (boss.stage)
         {
             case Boss.BossStage.Fall:
-                animator.Play("Boss_Fall");
+                animator.SetTrigger("IsFalling");
                 break;
             case Boss.BossStage.Idle:
-                animator.Play("Boss_Idle");
+                animator.SetTrigger("IsIdle");
                 break;
             case Boss.BossStage.Attack:
-                animator.Play("Boss_Attack");
+                animator.SetTrigger("Attack");
                 break;
             case Boss.BossStage.Scare:
-                animator.Play("Boss_Scare");
+                animator.SetTrigger("IsScared");
                 break;
             case Boss.BossStage.FallEnd:
-                animator.Play("Boss_FallEnd");
+                animator.SetTrigger("IsFallEnding");
                 break;
         }
     }
-    
+
     public void OnAttackAnimationEnd(int stateInfo)
     {
         if (stateInfo == 0)

@@ -16,6 +16,7 @@ public class Boss : MonoBehaviour
     public GameObject tronco;
     private Log logScript;
     private float lastLogDurability = 1;
+    private bool isJumpingByDamage = false;
 
     void Start()
     {
@@ -52,10 +53,14 @@ public class Boss : MonoBehaviour
         switch (stage)
         {
             case BossStage.Fall:
+                if (isJumpingByDamage)
+                {
+                    // No sobrescribas la fuerza del salto por daño
+                    break;
+                }
                 if (vida > 1)
                 {
                     Vector3 direction = (tronco.transform.position - transform.position).normalized;
-
                     rb.isKinematic = false;
                     rb.linearVelocity = direction * 20f;
                     if (Vector3.Distance(transform.position, tronco.transform.position) <= 0.5f)
@@ -114,7 +119,6 @@ public class Boss : MonoBehaviour
             yield break; // Sale de la corrutina si el boss está derrotado
         }
         stage = BossStage.Idle;
-
     }
     private IEnumerator EntertoIdle()
     {
@@ -138,17 +142,23 @@ public class Boss : MonoBehaviour
         if (vida > 0)
         {
             stage = BossStage.Fall;
-            rb.AddForce(Vector3.up * 15f, ForceMode.Impulse); // Simula un golpe
+            rb.isKinematic = false;
+            rb.useGravity = true;
+            rb.AddForce(Vector3.up * 7.5f, ForceMode.Impulse); // Simula un golpe
+            isJumpingByDamage = true;
+            StartCoroutine(ResetJumpByDamage());
         }
         else if (vida <= 0)
         {
             stage = BossStage.Fall;
             Invoke(nameof(EntrarScare), 1f); // Espera 1 segundo antes de scare
         }
-        else
-        {
-            Destroy(gameObject); // Destruye el boss al ser derrotado
-        }
+    }
+
+    private IEnumerator ResetJumpByDamage()
+    {
+        yield return new WaitForSeconds(0.3f); // Tiempo suficiente para el salto
+        isJumpingByDamage = false;
     }
 
     private void EntrarScare()
