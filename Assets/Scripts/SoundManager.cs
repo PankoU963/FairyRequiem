@@ -5,7 +5,6 @@ public enum SoundType
     PASOS,
     ATAQUE,
     DAÑO,
-    AMBIENTE,
     FLOR,
     DAÑO_ENEMIGO
 }
