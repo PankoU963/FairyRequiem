@@ -55,7 +55,7 @@ public class ComboSystem : MonoBehaviour
                 }
                 else
                 {
-                    if (stateInfo.IsName("Movement") && comboStep == 0) ExecuteComboStep();
+                    if ((stateInfo.IsName("Movement") || stateInfo.IsName("Idle")) && comboStep == 0) ExecuteComboStep();
                     else if (stateInfo.IsName("Attack 1") && comboStep == 1) ExecuteComboStep();
                     else if (stateInfo.IsName("Attack 2") && comboStep == 2) ExecuteComboStep();
                     else if (stateInfo.IsName("Attack 3") && comboStep == 3) ExecuteComboStep();
