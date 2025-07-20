@@ -648,7 +648,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 248, y: -358.8233}
+  m_AnchoredPosition: {x: 248, y: -358.57983}
   m_SizeDelta: {x: 400, y: 295}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &102745295
@@ -1094,7 +1094,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 248, y: -537.1766}
+  m_AnchoredPosition: {x: 248, y: -535.9592}
   m_SizeDelta: {x: 400, y: 359}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &512394585
@@ -1697,7 +1697,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00012207031, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -1000, y: -200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &815019316
@@ -3579,9 +3579,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9901ab77eaebf584a8c411d85dacd5e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: {fileID: 0}
-  mute: {fileID: 0}
-  parallaxBackground: {fileID: 0}
+  sounds: {fileID: 324487259}
+  mute: {fileID: 1427655934}
+  parallaxBackground: {fileID: 1864660837}
 --- !u!1 &1682961637
 GameObject:
   m_ObjectHideFlags: 0
@@ -3616,8 +3616,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1000, y: 500}
+  m_AnchoredPosition: {x: -0.00013733, y: 0.0023041}
+  m_SizeDelta: {x: 1920, y: 1078.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1682961639
 MonoBehaviour:
@@ -3955,7 +3955,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 248, y: -431.99994}
+  m_AnchoredPosition: {x: 248, y: -431.26953}
   m_SizeDelta: {x: 400, y: 359}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1973201306
