@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class ParallaxBackGround : MonoBehaviour
 {
-    public Transform cam;
-    public float parallaxMultiplier = 0.5f;
-    public float viewZone = 10f; // Distancia de activación de cambio de tile
-    public float backgroundLength; // Ancho de cada tile (fondo)
+    [SerializeField] private Transform cam;
+    [SerializeField] private float parallaxMultiplier = 0.5f;
+    [SerializeField] private float parallaxController;
+    [SerializeField] private float viewZone = 10f; // Distancia de activación de cambio de tile
+    [SerializeField] private float backgroundLength; // Ancho de cada tile (fondo)
 
     private Transform[] layers;
     private int leftIndex;
@@ -31,6 +32,16 @@ public class ParallaxBackGround : MonoBehaviour
 
     void Update()
     {
+        if(PlayerPrefs.GetInt("Parallax") == 1)
+        {
+            parallaxMultiplier = parallaxController;
+        }
+        if(PlayerPrefs.GetInt("Parallax") == 0)
+        {
+            parallaxMultiplier = 0; 
+        }
+
+
         float deltaX = cam.position.x - lastCamX;
         transform.position += Vector3.right * (deltaX * parallaxMultiplier);
         lastCamX = cam.position.x;
