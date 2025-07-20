@@ -19,20 +19,19 @@ public class Arrow : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (!collision.transform.CompareTag("Enemy"))
+        if (!other.transform.CompareTag("Enemy"))
         {
-            if (collision.transform.CompareTag("Player"))
+            if (other.transform.CompareTag("Player"))
             {
-                IDamageable damageable = collision.transform.GetComponent<IDamageable>();
+                IDamageable damageable = other.transform.GetComponent<IDamageable>();
                 if (damageable != null)
                 {
                     damageable.TakeDamage(damageAmount);
+                    Destroy(gameObject);
                 }
             }
-            Destroy(gameObject);
         }
-
     }
 }

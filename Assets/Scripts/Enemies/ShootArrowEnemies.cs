@@ -7,7 +7,6 @@ public class ShootArrowEnemies : MonoBehaviour
     [SerializeField] private int damageAmount = 10;
     private Transform playerTransform;
     [SerializeField] private float initialSpeed = 10f;
-    [SerializeField] private float arcHeight = 5f;
 
     private void Start()
     {
@@ -21,17 +20,11 @@ public class ShootArrowEnemies : MonoBehaviour
         Rigidbody rb = arrow.GetComponent<Rigidbody>();
         arrow.GetComponent<Arrow>().damageAmount = damageAmount;
 
-        Vector3 directionXZ = playerTransform.position - shootPoint.position;
-        directionXZ.y = 0;
-        directionXZ.Normalize();
-
-        Vector3 launchDirection = directionXZ + Vector3.up * arcHeight;
-        launchDirection.Normalize();
+        Vector3 direction = (playerTransform.position - shootPoint.position).normalized;
 
         rb.useGravity = true;
+        rb.linearVelocity = direction * initialSpeed;
 
-        rb.linearVelocity = launchDirection * initialSpeed;
-
-        arrow.transform.forward = launchDirection;
+        arrow.transform.forward = new Vector3(direction.x, 0, direction.z).normalized;
     }
 }

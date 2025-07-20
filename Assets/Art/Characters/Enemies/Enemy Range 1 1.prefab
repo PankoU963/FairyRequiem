@@ -458,8 +458,7 @@ MonoBehaviour:
   shootPoint: {fileID: 2614340150062916697}
   arrowPrefab: {fileID: 5695477314790385396, guid: b43d00d7253773841b88da23da3a237c, type: 3}
   damageAmount: 3
-  initialSpeed: 10
-  arcHeight: 0.5
+  initialSpeed: 15
 --- !u!1 &1313792497991948851
 GameObject:
   m_ObjectHideFlags: 0
