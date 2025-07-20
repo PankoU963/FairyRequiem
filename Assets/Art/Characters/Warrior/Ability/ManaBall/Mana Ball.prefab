@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  amount: 30
+  amount: 5
 --- !u!54 &7323987106685170761
 Rigidbody:
   m_ObjectHideFlags: 0

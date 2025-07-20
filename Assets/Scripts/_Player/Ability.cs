@@ -36,7 +36,7 @@ public class Ability : MonoBehaviour
             abilityActive = false;
             if(playerMana.CurrentMana >= cost)
             {
-                if (Input.GetKeyDown(KeyCode.Z) && !bufferAbility)
+                if (Input.GetKeyDown(KeyCode.J) && !bufferAbility)
                 {
                     bufferAbility = true;
                     animator.SetTrigger("Ability");

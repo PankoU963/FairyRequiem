@@ -14,17 +14,18 @@ public class PauseGame : MonoBehaviour
 
     void Update()
     {
-        if (!gamePaused)
-        {
-            Resume();
-        }
-        else
-        {
-            Pause();
-        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             gamePaused = !gamePaused;
+            if (!gamePaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
         }
     }
 
@@ -49,5 +50,9 @@ public class PauseGame : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
+    }
+    public void EndTutorial()
+    {
+        Time.timeScale = 1;
     }
 }

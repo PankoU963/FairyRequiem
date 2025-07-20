@@ -44,5 +44,9 @@ public class OptionsConfig : MonoBehaviour
         {
             PlayerPrefs.SetInt("Parallax", 0);
         }
+
+        Debug.Log(PlayerPrefs.GetInt("Parallax"));
+        Debug.Log(PlayerPrefs.GetInt("Mute"));
+        Debug.Log(PlayerPrefs.GetFloat("Volume"));
     }
 }

@@ -33,7 +33,7 @@ public class ComboSystem : MonoBehaviour
         }
         animator.SetBool("Attack", isAttacking);
 
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             pendingAttack = true;
             attackBufferTimer = inputBufferTime;

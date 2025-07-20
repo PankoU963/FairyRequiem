@@ -23,7 +23,7 @@ public class Heal : MonoBehaviour
     {
         usesText.text = uses.ToString();
         cdImage.fillAmount = cdTimer / cdMax;
-        if (Input.GetKeyDown(KeyCode.C)) 
+        if (Input.GetKeyDown(KeyCode.L)) 
         {
             if(uses <= 0) return;
             if(health.CurrentHealth == health.MaxHealth) return;
