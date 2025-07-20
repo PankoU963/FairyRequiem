@@ -15,6 +15,7 @@ public class TrunkBehaviour : MonoBehaviour
     {
         speedIn = speed / 100f; // Convierte la velocidad a una escala adecuada para el movimiento
         velocidadRotacion = new Vector3(0f, -10 * rotationVelocity, 0f);
+        Debug.Log("sexooooo");
     }
 
     void Update()

@@ -132,8 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d93775b8b9a1a974c92e51291c104b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadRotacion: {x: 0, y: -450, z: 0}
-  speed: 40
+  rotationVelocity: 45
+  speed: 30
+  destroyTime: 10
 --- !u!1 &5542596938168600850
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,6 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6312489711897823560}
   - component: {fileID: 4292917089928667808}
+  - component: {fileID: 1901337674833279924}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -189,3 +191,17 @@ CapsuleCollider:
   m_Height: 1.592768
   m_Direction: 1
   m_Center: {x: 0.07835153, y: 0.1300597, z: -0.057828}
+--- !u!114 &1901337674833279924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5542596938168600850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a62b67dc0a93294999af9f3162e7d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 30
+  attackAnimator: {fileID: 0}

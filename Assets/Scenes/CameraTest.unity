@@ -1840,6 +1840,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 247142643}
     m_Modifications:
+    - target: {fileID: 2858873321811339167, guid: 2d269ac8228b25c41ad9da77db18e94e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.24
+      objectReference: {fileID: 0}
     - target: {fileID: 3308090160971591855, guid: 2d269ac8228b25c41ad9da77db18e94e, type: 3}
       propertyPath: m_Name
       value: Trap (2)
@@ -6882,6 +6886,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 247142643}
     m_Modifications:
+    - target: {fileID: 2858873321811339167, guid: 2d269ac8228b25c41ad9da77db18e94e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.17
+      objectReference: {fileID: 0}
     - target: {fileID: 3308090160971591855, guid: 2d269ac8228b25c41ad9da77db18e94e, type: 3}
       propertyPath: m_Name
       value: Trap
@@ -10882,7 +10890,7 @@ PrefabInstance:
       objectReference: {fileID: 345584135}
     - target: {fileID: 2768996705151211462, guid: 6577ce039ea26894ab3b9118c6423913, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -59.9
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 2768996705151211462, guid: 6577ce039ea26894ab3b9118c6423913, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10890,7 +10898,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2768996705151211462, guid: 6577ce039ea26894ab3b9118c6423913, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2768996705151211462, guid: 6577ce039ea26894ab3b9118c6423913, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12742,6 +12750,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 247142643}
     m_Modifications:
+    - target: {fileID: 2858873321811339167, guid: 2d269ac8228b25c41ad9da77db18e94e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3308090160971591855, guid: 2d269ac8228b25c41ad9da77db18e94e, type: 3}
       propertyPath: m_Name
       value: Trap (1)
