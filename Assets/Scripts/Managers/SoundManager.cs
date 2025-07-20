@@ -14,21 +14,49 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField] private AudioClip[] soundList;
     private static SoundManager instance;
-    private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSourceAmbiente;
 
+    private float volume = 1f;
     private void Awake()
     {
         instance = this;
+
+        volume = PlayerPrefs.GetFloat("Volume", 1f);
+
+        if (audioSource != null)
+            audioSource.volume = volume;
+
+        if (audioSourceAmbiente != null)
+            audioSourceAmbiente.volume = volume;
     }
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
     }
 
-    public static void Playsound(SoundType sound, float volume = 1)
+    public static void Playsound(SoundType sound)
     {
-        instance.audioSource.PlayOneShot(instance.soundList[(int)sound], volume);
+        if (instance == null || instance.audioSource == null)
+            return;
+
+        instance.audioSource.PlayOneShot(instance.soundList[(int)sound], instance.volume);
     }
 
+    public static void SetVolume(float newVolume)
+    {
+        newVolume = Mathf.Clamp01(newVolume);
+        PlayerPrefs.SetFloat("Volume", newVolume);
+        PlayerPrefs.Save();
+
+        instance.volume = newVolume;
+
+        if (instance.audioSource != null)
+            instance.audioSource.volume = newVolume;
+
+        if (instance.audioSourceAmbiente != null)
+            instance.audioSourceAmbiente.volume = newVolume;
+    }
 }
