@@ -3,7 +3,6 @@ using UnityEngine;
 public class DamageDealer : MonoBehaviour
 {
     [SerializeField] private int damageAmount = 10;
-
     [SerializeField] private Animator attackAnimator;
     private AnimatorStateInfo stateInfo;
     private bool attacked;
@@ -16,6 +15,7 @@ public class DamageDealer : MonoBehaviour
             attacked = false;
         }
     }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -24,7 +24,7 @@ public class DamageDealer : MonoBehaviour
             if (damageable != null && !attacked)
             {
                 damageable.TakeDamage(damageAmount);
-                attacked = true;    
+                attacked = true;
             }
         }
     }
