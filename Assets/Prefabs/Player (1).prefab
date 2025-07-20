@@ -941,7 +941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uses: 5
-  healAmount: 30
+  healAmount: 50
   usesText: {fileID: 0}
   cdImage: {fileID: 0}
   cdMax: 5
