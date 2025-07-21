@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour, IDamageable
 {
@@ -15,10 +16,14 @@ public class Health : MonoBehaviour, IDamageable
     public int CurrentHealth { get => currentHealth; set => currentHealth = Mathf.Clamp(value, 0, maxHealth); }
 
     [SerializeField] private GameObject manaBall;
+
+    private GameOver gameOver;
     void Awake()
     {
         CurrentHealth = MaxHealth;
         OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
+
+        gameOver = GetComponent<GameOver>();
     }
 
     public void TakeDamage(int amount)
@@ -52,7 +57,14 @@ public class Health : MonoBehaviour, IDamageable
         if(transform.tag != "Player" && manaBall != null)
         {
             Instantiate(manaBall, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        if (transform.tag == "Player")
+        {
+            if(gameOver != null)
+            gameOver.dead = true;
+        }
+
+
     }
 }

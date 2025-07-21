@@ -7,6 +7,10 @@ public class MainMenuScript : MonoBehaviour
     [SerializeField] private Image fadeImage; // Asigna tu imagen negra en el inspector
     [SerializeField] private AudioSource musicSource; // Asigna tu AudioSource en el inspector
 
+    private void Start()
+    {
+        Cursor.visible = true;
+    }
     public void PlayGame()
     {
         int timeToWait = 3;
