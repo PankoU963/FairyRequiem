@@ -34,12 +34,14 @@ public class PauseGame : MonoBehaviour
         pauseMenu.SetActive(false);
         configMenu.SetActive(false);
         Time.timeScale = 1;
+        Cursor.visible = false;
     }
 
     public void Pause()
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
+        Cursor.visible = true;
     }
 
     public void CloseMenu()
@@ -54,5 +56,6 @@ public class PauseGame : MonoBehaviour
     public void EndTutorial()
     {
         Time.timeScale = 1;
+        Cursor.visible = false;
     }
 }

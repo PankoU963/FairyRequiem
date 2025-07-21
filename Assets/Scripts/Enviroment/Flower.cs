@@ -7,6 +7,7 @@ public class Flower : MonoBehaviour
     {
         tutorialPanel.SetActive(true);
         Time.timeScale = 0;
+        Cursor.visible = true;
 
         SoundManager.Playsound(SoundType.FLOR);
         Destroy(gameObject);
