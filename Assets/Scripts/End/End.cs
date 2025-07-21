@@ -5,24 +5,43 @@ using UnityEngine.SceneManagement;
 
 public class End : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private GameObject[] images;
+    [SerializeField] private int index;
+
     void Start()
     {
-
+        foreach (GameObject image in images)
+        {
+            image.SetActive(false);
+        }
+        index = 0;
+        if (images.Length > 0)
+        {
+            images[index].SetActive(true);
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
-            Menu();
+            CambiarImagen();
         }
     }
 
-    public void Menu()
+    public void CambiarImagen()
     {
-        SceneManager.LoadScene(0);
-    }
+        if (index < images.Length - 1)
+        {
+            images[index].SetActive(false);
 
+            index++;
+
+            images[index].SetActive(true);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
 }

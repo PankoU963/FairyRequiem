@@ -13,6 +13,9 @@ public class Heal : MonoBehaviour
     [SerializeField] private Image cdImage;
     [SerializeField] private float cdMax;
     [SerializeField] private float cdTimer;
+
+    public int Uses { get => uses; set => uses = value; }
+
     void Start()
     {
         health = GetComponent<Health>();
@@ -21,15 +24,15 @@ public class Heal : MonoBehaviour
 
     void Update()
     {
-        usesText.text = uses.ToString();
+        usesText.text = Uses.ToString();
         cdImage.fillAmount = cdTimer / cdMax;
         if (Input.GetKeyDown(KeyCode.L)) 
         {
-            if(uses <= 0) return;
+            if(Uses <= 0) return;
             if(health.CurrentHealth == health.MaxHealth) return;
             if(used) return;
             UseFlower();
-            uses--;
+            Uses--;
             used = true;
         }
         CD();

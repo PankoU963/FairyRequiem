@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour
 {
@@ -11,9 +12,12 @@ public class EndGame : MonoBehaviour
 
     [SerializeField] private float timer = 0f;
 
+    [SerializeField] private Heal checkEnd;
+
     void Awake()
     {
         bossDead = false;
+        checkEnd = GameObject.FindGameObjectWithTag("Player").GetComponent<Heal>();
     }
 
     void Update()
@@ -29,7 +33,14 @@ public class EndGame : MonoBehaviour
 
             if (alpha >= 1f)
             {
-
+                if(checkEnd.Uses >= 1)
+                {
+                    SceneManager.LoadScene(3);
+                }
+                else
+                {
+                    SceneManager.LoadScene(4);
+                }
             }
         }
     }
