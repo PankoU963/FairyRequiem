@@ -5,7 +5,7 @@ public class Boss : MonoBehaviour
 {
     [SerializeField] public enum BossStage { Fall, Idle, Attack, Scare, FallEnd, Dead}
     [SerializeField] public BossStage stage = BossStage.Fall;
-    [SerializeField] private int vida = 5;
+    [SerializeField] public int vida = 5;
     [SerializeField] private float attackInterval = 5f;
     [SerializeField] private float attackTimer = 0f;
     [SerializeField] private GameObject[] enemies;
@@ -38,6 +38,13 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
+        if (stage == BossStage.Fall || stage == BossStage.FallEnd || stage == BossStage.Scare || stage == BossStage.Dead)
+        {
+            // Cancela ataques si por alguna razón sigue activo
+            attackTimer = 0f;
+            isSpawn = false;
+        }
+
         if (vida > 1) transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform.position);
         else if (vida <= 1) transform.LookAt(transform.position + Vector3.left);
         

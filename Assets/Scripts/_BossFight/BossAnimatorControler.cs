@@ -15,16 +15,22 @@ public class BossAnimatorControler : MonoBehaviour
     {
         if (boss == null || animator == null) return;
 
+        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Transitioning")) return;
+
         switch (boss.stage)
         {
             case Boss.BossStage.Fall:
+                animator.ResetTrigger("Attack");
                 animator.SetTrigger("IsFalling");
                 break;
             case Boss.BossStage.Idle:
                 animator.SetTrigger("IsIdle");
                 break;
             case Boss.BossStage.Attack:
-                animator.SetTrigger("Attack");
+                if (boss.vida > 1 && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+                {
+                    animator.SetTrigger("Attack");
+                }
                 break;
             case Boss.BossStage.Scare:
                 animator.SetTrigger("IsScared");
