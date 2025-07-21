@@ -99,6 +99,7 @@ public class Boss : MonoBehaviour
                 if (attackTimer >= attackInterval)
                 {
                     attackTimer = 0f;
+                    isSpawn = false;
                     stage = BossStage.Attack;
                 }
                 break;
@@ -188,9 +189,9 @@ public class Boss : MonoBehaviour
         float t = 0f;
         while (t < 3f)
         {
-            // Si el boss cae o muere, cancela el ataque
             if (stage != BossStage.Attack)
             {
+                isSpawn = false; // RESETEA aunque se interrumpa
                 yield break;
             }
 
