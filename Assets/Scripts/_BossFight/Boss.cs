@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Boss : MonoBehaviour
 {
-    [SerializeField] public enum BossStage { Fall, Idle, Attack, Scare, FallEnd, Dead}
+    [SerializeField] public enum BossStage { Fall, Idle, Attack, Scare, FallEnd, Dead }
     [SerializeField] public BossStage stage = BossStage.Fall;
     [SerializeField] public int vida = 5;
     [SerializeField] private float attackInterval = 5f;
@@ -47,7 +47,7 @@ public class Boss : MonoBehaviour
 
         if (vida > 1) transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform.position);
         else if (vida <= 1) transform.LookAt(transform.position + Vector3.left);
-        
+
         if (vida <= 0)
         {
             stage = BossStage.Dead;
@@ -103,18 +103,18 @@ public class Boss : MonoBehaviour
                 }
                 break;
             case BossStage.Attack:
-
                 if (!isSpawn)
                 {
+                    isSpawn = true; // marcar como ya invocado
+
                     int numberEnemies = Random.Range(1, 4);
-                    for(int i = 0; i < numberEnemies; i++)
+                    for (int i = 0; i < numberEnemies; i++)
                     {
-                        Instantiate(enemies[Random.Range(0, 3)], enemiesSpawn.position, Quaternion.identity);
+                        Instantiate(enemies[Random.Range(0, enemies.Length)], enemiesSpawn.position, Quaternion.identity);
                     }
 
-                    isSpawn = true;
+                    StartCoroutine(EntertoIdleSeguro());
                 }
-                StartCoroutine(EntertoIdle());
                 break;
             case BossStage.Scare:
                 break;
@@ -181,5 +181,25 @@ public class Boss : MonoBehaviour
     private void EntrarScare()
     {
         stage = BossStage.Scare;
+    }
+    
+    private IEnumerator EntertoIdleSeguro()
+    {
+        float t = 0f;
+        while (t < 3f)
+        {
+            // Si el boss cae o muere, cancela el ataque
+            if (stage != BossStage.Attack)
+            {
+                yield break;
+            }
+
+            t += Time.deltaTime;
+            yield return null;
+        }
+
+        stage = BossStage.Idle;
+        attackTimer = 0f;
+        isSpawn = false;
     }
 }
