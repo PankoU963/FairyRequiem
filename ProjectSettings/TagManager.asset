@@ -9,6 +9,7 @@ TagManager:
   - Weapon
   - LogBoss
   - EnemieSpawnBoss
+  - EndGame
   layers:
   - Default
   - TransparentFX
