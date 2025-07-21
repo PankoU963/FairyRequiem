@@ -208,6 +208,7 @@ MonoBehaviour:
   wallF: {fileID: 5625525609658646164}
   WallB: {fileID: 3640150964332747246}
   zonaFija: {fileID: 6306223987397536926}
+  activated: 0
   boss: {fileID: 2482689333580641462, guid: 2828293310181f44d95badbc6919a955, type: 3}
   spawnBossLocation: {fileID: 691149093979491880}
 --- !u!1 &5625525609658646164
@@ -361,9 +362,10 @@ GameObject:
   - component: {fileID: 5585031110519280966}
   - component: {fileID: 7267926764241584373}
   - component: {fileID: 5895940753502093945}
+  - component: {fileID: 2217908598164267976}
   m_Layer: 0
   m_Name: Wave Final
-  m_TagString: Untagged
+  m_TagString: EndGame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -463,6 +465,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2217908598164267976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6306223987397536926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f9c9fee3e1e3094d801848d9c37d65b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossDead: 0
+  blackScreen: {fileID: 0}
+  duration: 2
+  timer: 0
 --- !u!1 &9041548250346629748
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,6 +655,10 @@ PrefabInstance:
     - target: {fileID: 8754494466609393793, guid: ecca32c16ff29d141ab5b7ffa0a7ae87, type: 3}
       propertyPath: ShapeModule.radius.value
       value: 14.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754494466609393793, guid: ecca32c16ff29d141ab5b7ffa0a7ae87, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8754494466609393793, guid: ecca32c16ff29d141ab5b7ffa0a7ae87, type: 3}
       propertyPath: InitialModule.startSpeed.scalar

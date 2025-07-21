@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Boss : MonoBehaviour
 {
-    [SerializeField] public enum BossStage { Fall, Idle, Attack, Scare, FallEnd }
+    [SerializeField] public enum BossStage { Fall, Idle, Attack, Scare, FallEnd, Dead}
     [SerializeField] public BossStage stage = BossStage.Fall;
     [SerializeField] private int vida = 5;
     [SerializeField] private float attackInterval = 5f;
@@ -18,6 +18,8 @@ public class Boss : MonoBehaviour
     private float lastLogDurability = 1;
     private bool isJumpingByDamage = false;
 
+    private EndGame endgame;
+
     void Start()
     {
         animator = transform.GetChild(0).GetComponent<Animator>();
@@ -30,6 +32,8 @@ public class Boss : MonoBehaviour
 
         logScript = tronco.GetComponentInParent<Log>();
         lastLogDurability = logScript.CurrentDurability;
+
+        endgame = GameObject.FindGameObjectWithTag("EndGame").GetComponent<EndGame>();
     }
 
     void Update()
@@ -39,7 +43,8 @@ public class Boss : MonoBehaviour
         
         if (vida <= 0)
         {
-            Destroy(gameObject); // Destruye el boss al ser derrotado
+            stage = BossStage.Dead;
+            endgame.bossDead = true;
             return;
         }
 
@@ -94,7 +99,12 @@ public class Boss : MonoBehaviour
 
                 if (!isSpawn)
                 {
-                    Instantiate(enemies[Random.Range(0, 3)], enemiesSpawn.position, Quaternion.identity);
+                    int numberEnemies = Random.Range(1, 4);
+                    for(int i = 0; i < numberEnemies; i++)
+                    {
+                        Instantiate(enemies[Random.Range(0, 3)], enemiesSpawn.position, Quaternion.identity);
+                    }
+
                     isSpawn = true;
                 }
                 StartCoroutine(EntertoIdle());

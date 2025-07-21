@@ -32,6 +32,9 @@ public class BossAnimatorControler : MonoBehaviour
             case Boss.BossStage.FallEnd:
                 animator.SetTrigger("IsFallEnding");
                 break;
+            case Boss.BossStage.Dead:
+                animator.SetTrigger("Dead");
+                break;
         }
     }
 
