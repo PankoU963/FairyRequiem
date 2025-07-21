@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVelocity: 45
-  speed: 30
+  speed: 5
   destroyTime: 10
 --- !u!1 &5542596938168600850
 GameObject:

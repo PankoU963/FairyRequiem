@@ -3557,6 +3557,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3581098549290240749, guid: fca24498389af3a4c8521616549ef294, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581098549290240749, guid: fca24498389af3a4c8521616549ef294, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.32
+      objectReference: {fileID: 0}
     - target: {fileID: 4245073215455582690, guid: fca24498389af3a4c8521616549ef294, type: 3}
       propertyPath: m_Name
       value: Tronco Grande
@@ -3575,7 +3583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7368392353391999161, guid: fca24498389af3a4c8521616549ef294, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.5278195
       objectReference: {fileID: 0}
     - target: {fileID: 7368392353391999161, guid: fca24498389af3a4c8521616549ef294, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3583,7 +3591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7368392353391999161, guid: fca24498389af3a4c8521616549ef294, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -9.524456
       objectReference: {fileID: 0}
     - target: {fileID: 7368392353391999161, guid: fca24498389af3a4c8521616549ef294, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -11610,7 +11618,7 @@ PrefabInstance:
       objectReference: {fileID: 345584135}
     - target: {fileID: 2768996705151211462, guid: 6577ce039ea26894ab3b9118c6423913, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -56.29
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 2768996705151211462, guid: 6577ce039ea26894ab3b9118c6423913, type: 3}
       propertyPath: m_LocalPosition.y
