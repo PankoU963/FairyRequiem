@@ -1852,6 +1852,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3308090160971591855, guid: 2d269ac8228b25c41ad9da77db18e94e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6114242481184578806, guid: 2d269ac8228b25c41ad9da77db18e94e, type: 3}
       propertyPath: m_LocalScale.x
       value: 6.9547086
@@ -7176,6 +7180,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4822276788766022604, guid: 866205bedb638f6478bb0b73cf291ee3, type: 3}
   m_PrefabInstance: {fileID: 995476951}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1000708271 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a071ef1bc506003468be203cbcc5daaf, type: 3}
+  m_PrefabInstance: {fileID: 1529123340}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1001105411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7456,6 +7465,10 @@ PrefabInstance:
     - target: {fileID: 3308090160971591855, guid: 2d269ac8228b25c41ad9da77db18e94e, type: 3}
       propertyPath: m_Name
       value: Trap
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308090160971591855, guid: 2d269ac8228b25c41ad9da77db18e94e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6114242481184578806, guid: 2d269ac8228b25c41ad9da77db18e94e, type: 3}
       propertyPath: m_LocalScale.x
@@ -10907,13 +10920,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a071ef1bc506003468be203cbcc5daaf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1529123344}
   m_SourcePrefab: {fileID: 100100000, guid: a071ef1bc506003468be203cbcc5daaf, type: 3}
 --- !u!4 &1529123341 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a071ef1bc506003468be203cbcc5daaf, type: 3}
   m_PrefabInstance: {fileID: 1529123340}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &1529123344
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000708271}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1867133750731526634, guid: a071ef1bc506003468be203cbcc5daaf, type: 3}
 --- !u!1 &1551670108
 GameObject:
   m_ObjectHideFlags: 0
@@ -11719,6 +11757,10 @@ PrefabInstance:
     - target: {fileID: 1828257934271459622, guid: 6577ce039ea26894ab3b9118c6423913, type: 3}
       propertyPath: m_Name
       value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828257934271459622, guid: 6577ce039ea26894ab3b9118c6423913, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2420541741237885087, guid: 6577ce039ea26894ab3b9118c6423913, type: 3}
       propertyPath: swordCollider
@@ -13617,6 +13659,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3308090160971591855, guid: 2d269ac8228b25c41ad9da77db18e94e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6114242481184578806, guid: 2d269ac8228b25c41ad9da77db18e94e, type: 3}
       propertyPath: m_LocalScale.x
       value: 6.9547086
@@ -14807,6 +14853,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2228558668242177921, guid: 730ae224c725a8244985f55e5b5852be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2450809734780751697, guid: 730ae224c725a8244985f55e5b5852be, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.28
@@ -15356,6 +15406,10 @@ PrefabInstance:
     - target: {fileID: 5348927508888109333, guid: 2d4a8710612d86743af92da97aca7fcb, type: 3}
       propertyPath: m_Name
       value: flower field
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348927508888109333, guid: 2d4a8710612d86743af92da97aca7fcb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
