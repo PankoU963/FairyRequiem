@@ -19,11 +19,15 @@ public class EndGame : MonoBehaviour
         bossDead = false;
         checkEnd = GameObject.FindGameObjectWithTag("Player").GetComponent<Heal>();
     }
-
+    private void Start()
+    {
+        blackScreen.gameObject.SetActive(false);
+    }
     void Update()
     {
         if (bossDead)
         {
+            blackScreen.gameObject.SetActive(true);
             timer += Time.deltaTime;
             float alpha = Mathf.Clamp01(timer / duration);
 
